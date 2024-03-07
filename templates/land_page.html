@@ -11,7 +11,7 @@
     <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/js/bootstrap.bundle.min.js"></script>
     <script src="https://kit.fontawesome.com/274ee977b7.js" crossorigin="anonymous"></script>
-  
+    
     <style>
         body{
             background-color:  #d7e3fc;
@@ -44,58 +44,55 @@
         button[type="submit"] {
             display: none; 
         }
-        @keyframes slideInFromRight {
-    0% {
-        transform: translateX(100%);
-        opacity: 0;
+       
+
+  
+
+
+    
+        .custom-card {
+      border-radius: 20px; /* Rounded border */
+      background-color: #f8f9fa; /* Background color */
+      transition: all 0.3s ease; /* Smooth transition effect */
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); 
     }
-    100% {
-        transform: translateX(0);
-        opacity: 1;
+    
+
+    /* Hover effect */
+    .custom-card:hover {
+      transform: translateY(-5px); 
+      box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2); 
     }
+   
+
+    .archive-button {
+      
+      position: absolute;
+      right: 20%;
+     
+      transform: translateY(-50%);
+      font-style: italic;
+      background-color: #fff;
+      border: 1px solid #ccc;
+      padding: 5px 10px;
+      border-radius: 5px;
+    }
+
+    
+
+    
+    .archive-button:hover::after {
+    content: "Archives";
+    position: absolute;
+    top: -25px;
+    right: -10px;
+    background-color: #333;
+    color: #fff;
+    padding: 3px 8px;
+    border-radius: 3px;
+    font-size: 12px;
 }
 
-.slideInFromRight {
-    animation: slideInFromRight 1s ease-out forwards; /* Increase the animation duration (e.g., 1s) */
-}
-.card {
-    border: 1px solid #ccc;
-    border-radius: 10px;
-    padding: 20px;
-    margin: 20px;
-    width: 300px;
-    display: flex;
-    align-items: center;
-  }
-  .button {
-    padding: 10px 20px;
-    margin: 5px;
-    border-radius: 5px;
-    cursor: pointer;
-  }
-  .sub-card {
-    border: 1px solid blue;
-    border-radius: 10px;
-    padding: 10px;
-    margin: 10px;
-  }
-  .red-button {
-    background-color: red;
-    color: white;
-  }
-  .green-button {
-    background-color: green;
-    color: white;
-  }
-  .rating {
-    unicode-bidi: bidi-override;
-    direction: ltr;
-    text-align: center;
-}
-.star {
-    color: #FFD700; /* Color of the stars */
-    font-size: 2em; /* Size of the stars */
-}
     </style>
 </head>
 <body>
@@ -151,163 +148,461 @@
             <div class="row justify-content-center">
                 <div class="col-md-8 text-center">
                     <p  style="font-style: italic;font-size: 30px;">Your success, our priority. Empowering workers, enriching lives.</p>
+                    <p style="font-style: italic;font-size: 20px;"><span style="font-weight: bold">CRM Website</span> is the true customer-centric tool for your sales needs. Track leads, get accurate forecasts, and focus on what matters: closing opportunities.</p>
                     <button class="btn btn-lg btn-success">Start Now</button>
                 </div>
             </div>
         </div>
 
-
-
-        <div id="container" class="container mt-4">
-            <div class="row justify-content-center">
-                <!-- First Card -->
-                <div class="col-md-3 text-center m-4">
-                    <div class="card" style="background-color: rgba(255, 255, 255, 0.1);">
-                        <h2 style="font-weight: bold; font-size: 20px;">New</h2>
         
-                        <!-- First Sub-card -->
-                        <div class="sub-card" id="sub-card-1">
-                            <p style="font-weight: bold;">Office Design</p>
-                            <p>$ 24000.00</p>
-                            <p>Decco Addit</p>
-                            <a href="" style="text-decoration: none;background-color: red;color:white;border-radius: 10px;width: 100px;display: inline-block;">product</a>
-                            <div class="rating">
-                                <span class="star">&#9733;</span>
-                                <span class="star">&#9733;</span>
-                                <span class="star">&#9733;</span>
-                                <span class="star">&#9733;</span>
-                                <span class="star">&#9734;</span> <!-- Empty star -->
-                            </div>
-                        </div>
-                        <!-- Second Sub-card -->
-                        <div class="sub-card">
-                            <p style="font-weight: bold;">Second Product</p>
-                            <p>$ 20000.00</p>
-                            <p>Company XYZ</p>
-                            <a href="" style="text-decoration: none;background-color: red;color:white;border-radius: 10px;width: 50px;">product</a>
-                            <div class="rating">
-                                <span class="star">&#9733;</span>
-                                <span class="star">&#9733;</span>
-                                <span class="star">&#9733;</span>
-                                <span class="star">&#9734;</span> <!-- Empty star -->
-                                <span class="star">&#9734;</span> <!-- Empty star -->
-                            </div>
-                        </div>
+        
+        <div class="container mt-4" style="border-radius: 10px;">
+            <div class="row">
+              <div class="col-md-3 mt-4">
+                <!-- Card 1 -->
+                <div class="card custom-card mb-3" style="background-color: #F7418F;">
+                  <div class="card-body">
+                    <h5 class="card-title">All Customers</h5>
+                    <div class="row">
+                      <div class="col-md-6">
+                       <a href=""> <img src="https://tse4.mm.bing.net/th?id=OIP.w_4cDgLPqDIJtF7kt8vcTgHaGe&pid=Api&P=0&h=180" class="img-fluid" alt="Image 1" style="height: 100px;"></a>
+                      </div>
+                      <div class="col-md-6">
+                        <h4><span id="count1">0</span></h4>
+                      </div>
                     </div>
+                  </div>
                 </div>
-        
-                <!-- Second Card -->
-                <div class="col-md-3 text-center m-4">
-                    <div class="card" style="background-color: rgba(255, 255, 255, 0.1);">
-                        <h2 style="font-weight: bold; font-size: 20px;">Qualified</h2>
-        
-                        <!-- First Sub-card -->
-                        <div class="sub-card">
-                            <p style="font-weight: bold;">Office Design</p>
-                            <p>$ 24000.00</p>
-                            <p>Decco Addit</p>
-                            <a href="" style="text-decoration: none;background-color: red;color:white;border-radius: 10px;width: 100px;display: inline-block;">product</a>
-                            <div class="rating">
-                                <span class="star">&#9733;</span>
-                                <span class="star">&#9733;</span>
-                                <span class="star">&#9733;</span>
-                                <span class="star">&#9733;</span>
-                                <span class="star">&#9734;</span> <!-- Empty star -->
-                            </div>
-                        </div>
-                        <!-- Second Sub-card -->
-                        <div class="sub-card">
-                            <p style="font-weight: bold;">Second Product</p>
-                            <p>$ 20000.00</p>
-                            <p>Company XYZ</p>
-                            <a href="" style="text-decoration: none;background-color: red;color:white;border-radius: 10px;width: 50px;">product</a>
-                            <div class="rating">
-                                <span class="star">&#9733;</span>
-                                <span class="star">&#9733;</span>
-                                <span class="star">&#9733;</span>
-                                <span class="star">&#9734;</span> <!-- Empty star -->
-                                <span class="star">&#9734;</span> <!-- Empty star -->
-                            </div>
-                        </div>
-
-
-
-                        
+              </div>
+              <div class="col-md-3 mt-4">
+                <!-- Card 2 -->
+                <div class="card custom-card mb-3" style="background-color: #E178C5;">
+                  <div class="card-body">
+                    <h5 class="card-title">All Transactions</h5>
+                    <div class="row">
+                      <div class="col-md-6">
+                        <a href=""><img src="https://tse3.mm.bing.net/th?id=OIP.u2EA9-D-3PIO8POCkUh5egHaHa&pid=Api&P=0&h=180" class="img-fluid" alt="Image 2" style="height: 100px;"></a>
+                      </div>
+                      <div class="col-md-6">
+                        <h4><span id="count2">0</span></h4>
+                      </div>
                     </div>
-
-                    
+                  </div>
                 </div>
-
-                <div class="col-md-3 text-center m-4">
-                    <div class="card" style="background-color: rgba(255, 255, 255, 0.1);">
-                        <h2 style="font-weight: bold; font-size: 20px;">Preposition</h2>
-        
-                        <!-- First Sub-card -->
-                        <div class="sub-card">
-                            <p style="font-weight: bold;">Office Design</p>
-                            <p>$ 24000.00</p>
-                            <p>Decco Addit</p>
-                            <a href="" style="text-decoration: none;background-color: red;color:white;border-radius: 10px;width: 100px;display: inline-block;">product</a>
-                            <div class="rating">
-                                <span class="star">&#9733;</span>
-                                <span class="star">&#9733;</span>
-                                <span class="star">&#9733;</span>
-                                <span class="star">&#9733;</span>
-                                <span class="star">&#9734;</span> <!-- Empty star -->
-                            </div>
-                        </div>
-                        <!-- Second Sub-card -->
-                        <div class="sub-card">
-                            <p style="font-weight: bold;">Second Product</p>
-                            <p>$ 20000.00</p>
-                            <p>Company XYZ</p>
-                            <a href="" style="text-decoration: none;background-color: red;color:white;border-radius: 10px;width: 50px;">product</a>
-                            <div class="rating">
-                                <span class="star">&#9733;</span>
-                                <span class="star">&#9733;</span>
-                                <span class="star">&#9733;</span>
-                                <span class="star">&#9734;</span> <!-- Empty star -->
-                                <span class="star">&#9734;</span> <!-- Empty star -->
-                            </div>
-                        </div>
-
-
-                        
-
-                        
+              </div>
+              <div class="col-md-3 mt-4">
+                <!-- Card 3 -->
+                <div class="card custom-card mb-3" style="background-color: #5F5D9C;">
+                  <div class="card-body">
+                    <h5 class="card-title">Current/Ongoing</h5>
+                    <div class="row">
+                      <div class="col-md-6">
+                      <a href=""> <img src="https://tse1.mm.bing.net/th?id=OIP.aMOYQEhyHl1L1cEzIkwiXwHaHa&pid=Api&P=0&h=180" class="img-fluid" alt="Image 3" style="height: 100px;"></a>
+                      </div>
+                      <div class="col-md-6">
+                        <h4><span id="count3">0</span></h4>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="col-md-3 mt-4">
+                <!-- Card 4 -->
+                <div class="card custom-card mb-3" style="background-color: #D37676;">
+                  <div class="card-body">
+                    <h5 class="card-title">Post Sales</h5>
+                    <div class="row">
+                      <div class="col-md-6">
+                       <a href=""><img src="https://tse3.mm.bing.net/th?id=OIP.18T3uJaCMR8TohmLa7zQXgAAAA&pid=Api&P=0&h=180" class="img-fluid" alt="Image 4" style="height: 100px;"></a> 
+                      </div>
+                      <div class="col-md-6">
+                        <h4><span id="count4">0</span></h4>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
             </div>
+
+<div class="row">
+    <div class="col-md-3">
+        <!-- Card 4 -->
+        <div class="card custom-card mb-3" style="background-color: #51829B;">
+          <div class="card-body">
+            <h5 class="card-title">Passive Transactions</h5>
+            <div class="row">
+              <div class="col-md-6">
+               <a href=""> <img src="https://tse4.mm.bing.net/th?id=OIP.hRi1rtjGO7j4ZSHjXFnsSwHaHa&pid=Api&P=0&h=180" class="img-fluid" alt="Image 4" style="height: 100px;"></a>
+              </div>
+              <div class="col-md-6">
+                <h4><span id="count4">0</span></h4>
+              </div>
+            </div>
+          </div>
         </div>
-        <div id="archive">
-            Archive
+      </div>
+
+      <div class="col-md-3">
+        <!-- Card 4 -->
+        <div class="card custom-card mb-3" style="background-color: #7469B6;">
+          <div class="card-body">
+            <h5 class="card-title">Incoming Sales</h5>
+            <div class="row">
+              <div class="col-md-6">
+               <a href=""><img src="https://tse4.mm.bing.net/th?id=OIP.8EHWAfryhCrQVUhrYcStjQHaHa&pid=Api&P=0&h=180" class="img-fluid" alt="Image 4" style="height: 100px;"></a>
+              </div>
+              <div class="col-md-6">
+                <h4><span id="count4">0</span></h4>
+              </div>
+            </div>
+          </div>
         </div>
+      </div>
+
+</div>
+
+
+
+           
+          </div>
+
+
+         
+
+
+          <div class="archive-button shake mt-2" id="archive-button">
+            <a href="{% url 'archive' %}"><i class="fas fa-archive"></i></a>
+        </div>
+
+          <div class="container mt-5" >
+           
+            <div class="row">
+
+                
+
+                <div class="col-md-3 mb-2" style="border-right: 2px solid blue;background-color: #B7C9F2;">
+                  <div class="row">
+                    <div class="col-md-3"> <h4>New</h4></div>
+                    <div class="col-md-6"></div>
+                    <div class="col-md-3"><a href="" style="text-decoration: none;color: black;font-size: 18px;" >+</a></div>
+                  </div>
+                  <div class="card" draggable="true" ondragstart="dragStart(event)" style="border-radius: 20px;background-color: rgba(104, 149, 210, 0.1);">
+                    <div class="card-body">
+                      <h6 class="card-title">Office Design</h6>
+                      <h6 class="card-subtitle mb-2 text-muted " >$ 34.990</h6>
+                      <p class="card-text">content of the card.</p>
+                      <!-- Rating stars -->
+                      <div class="rating mb-3">
+                        <span><i class="fas fa-star"></i></span>
+                        <span><i class="fas fa-star"></i></span>
+                        <span><i class="fas fa-star"></i></span>
+                        <span><i class="far fa-star"></i></span>
+                        <span><i class="far fa-star"></i></span>
+                      </div>
+                      <!-- Links -->
+                      <a href="#" class="btn btn-success mr-2">Product</a>
+                      <a href="#" class="btn btn-danger">Info</a>
+                    </div>
+                  </div>
+
+                  <div class="card" draggable="true" ondragstart="dragStart(event)" style="border-radius: 20px;background-color: rgba(104, 149, 210, 0.1);">
+                    <div class="card-body">
+                      <h6 class="card-title">Intrest in Your Product</h6>
+                      <h6 class="card-subtitle mb-2 text-muted">$ 654.09</h6>
+                      <p class="card-text">content of the card.</p>
+                      <!-- Rating stars -->
+                      <div class="rating mb-3">
+                        <span><i class="fas fa-star"></i></span>
+                        <span><i class="fas fa-star"></i></span>
+                        <span><i class="fas fa-star"></i></span>
+                        <span><i class="far fa-star"></i></span>
+                        <span><i class="far fa-star"></i></span>
+                      </div>
+                      <!-- Links -->
+                      <a href="#" class="btn btn-success mr-2">info</a>
+                      <a href="#" class="btn btn-danger">design</a>
+                    </div>
+                  </div>
+
+
+                  
+
+
+                  
+
+                   
+
+            
+             </div>
+             <div class="col-md-3 mb-2" style="border-right: 2px solid blue;background-color: #B5C0D0;">
+                <div class="row">
+                  <div class="col-md-3"> <h4>Qualified</h4></div>
+                  <div class="col-md-6"></div>
+                  <div class="col-md-3"><a href="" style="text-decoration: none;color: black;font-size: 18px;" >+</a></div>
+                </div>
+                <div class="card" draggable="true" ondragstart="dragStart(event)" style="border-radius: 20px;background-color: rgba(104, 149, 210, 0.1);">
+                  <div class="card-body">
+                    <h6 class="card-title">need 20 desk</h6>
+                    <h6 class="card-subtitle mb-2 text-muted">$ 545.98</h6>
+                    <p class="card-text">content of the card.</p>
+                    <!-- Rating stars -->
+                    <div class="rating mb-3">
+                      <span><i class="fas fa-star"></i></span>
+                      <span><i class="fas fa-star"></i></span>
+                      <span><i class="fas fa-star"></i></span>
+                      <span><i class="far fa-star"></i></span>
+                      <span><i class="far fa-star"></i></span>
+                    </div>
+                    <!-- Links -->
+                    <a href="#" class="btn btn-success mr-2">design</a>
+                    
+                  </div>
+                </div>
+
+                <div class="card" draggable="true" ondragstart="dragStart(event)" style="border-radius: 20px;background-color: rgba(104, 149, 210, 0.1);">
+                  <div class="card-body">
+                    <h4 class="card-title">pc desk</h4>
+                    <h6 class="card-subtitle mb-2 text-muted">$ 4589.0</h6>
+                    <p class="card-text">content of the card.</p>
+                    <!-- Rating stars -->
+                    <div class="rating mb-3">
+                      <span><i class="fas fa-star"></i></span>
+                      <span><i class="fas fa-star"></i></span>
+                      <span><i class="fas fa-star"></i></span>
+                      <span><i class="far fa-star"></i></span>
+                      <span><i class="far fa-star"></i></span>
+                    </div>
+                    <!-- Links -->
+                    <a href="#" class="btn btn-success mr-2">design</a>
+                    <a href="#" class="btn btn-danger">product</a>
+                  </div>
+
+
+                  
+                </div>
+                
+ </div>
+ <div class="col-md-3 mb-2" style="border-right: 2px solid blue;background-color: #B7C9F2;">
+    <div class="row">
+      <div class="col-md-3"> <h4>Proposition</h4></div>
+      <div class="col-md-6"></div>
+      <div class="col-md-3"><a href="" style="text-decoration: none;color: black;font-size: 18px;" >+</a></div>
+    </div>
+    <div class="card" draggable="true" ondragstart="dragStart(event)" style="border-radius: 20px;background-color: rgba(104, 149, 210, 0.1);">
+      <div class="card-body">
+        <h6 class="card-title">open space design</h6>
+        <h6 class="card-subtitle mb-2 text-muted">$ 654.00</h6>
+        <p class="card-text">content of the card.</p>
+        <!-- Rating stars -->
+        <div class="rating mb-3">
+          <span><i class="fas fa-star"></i></span>
+          <span><i class="fas fa-star"></i></span>
+          <span><i class="fas fa-star"></i></span>
+          <span><i class="far fa-star"></i></span>
+          <span><i class="far fa-star"></i></span>
+        </div>
+        <!-- Links -->
+        <a href="#" class="btn btn-success mr-2">product</a>
+        <a href="#" class="btn btn-danger">design</a>
+      </div>
+    </div>
+
+    <div class="card" draggable="true" ondragstart="dragStart(event)" style="border-radius: 20px;background-color: rgba(104, 149, 210, 0.1);">
+      <div class="card-body">
+        <h4 class="card-title">office desugn</h4>
+        <h6 class="card-subtitle mb-2 text-muted">$ 321.00</h6>
+        <p class="card-text">content of the card.</p>
+        <!-- Rating stars -->
+        <div class="rating mb-3">
+          <span><i class="fas fa-star"></i></span>
+          <span><i class="fas fa-star"></i></span>
+          <span><i class="fas fa-star"></i></span>
+          <span><i class="far fa-star"></i></span>
+          <span><i class="far fa-star"></i></span>
+        </div>
+        <!-- Links -->
+        <a href="#" class="btn btn-success mr-2">design</a>
+        <a href="#" class="btn btn-danger">info</a>
+      </div>
+
+
+      
+    </div>
+
+    
+                    
+          
+        
+        
+</div>
+<div class="col-md-3 mb-2" style="border-right: 2px solid blue;background-color: #B5C0D0;">
+    <div class="row">
+      <div class="col-md-3"> <h4>Won</h4></div>
+      <div class="col-md-6"></div>
+      <div class="col-md-3"><a href="" style="text-decoration: none;color: black;font-size: 18px;" >+</a></div>
+    </div>
+    <div class="card" draggable="true" ondragstart="dragStart(event)" style="border-radius: 20px;background-color: rgba(104, 149, 210, 0.1);">
+      <div class="card-body">
+        <h6 class="card-title">access online</h6>
+        <h6 class="card-subtitle mb-2 text-muted">$ 56.00</h6>
+        <p class="card-text">content of the card.</p>
+        <!-- Rating stars -->
+        <div class="rating mb-3">
+          <span><i class="fas fa-star"></i></span>
+          <span><i class="fas fa-star"></i></span>
+          <span><i class="fas fa-star"></i></span>
+          <span><i class="far fa-star"></i></span>
+          <span><i class="far fa-star"></i></span>
+        </div>
+        <!-- Links -->
+        <a href="#" class="btn btn-success mr-2">product</a>
+       
+      </div>
+    </div>
+
+    <div class="card" draggable="true" ondragstart="dragStart(event)" style="border-radius: 20px;background-color: rgba(104, 149, 210, 0.1);">
+      <div class="card-body">
+        <h6 class="card-title">customizable desk</h6>
+        <h6 class="card-subtitle mb-2 text-muted">$ 459.00</h6>
+        <p class="card-text">content of the card.</p>
+        <!-- Rating stars -->
+        <div class="rating mb-3">
+          <span><i class="fas fa-star"></i></span>
+          <span><i class="fas fa-star"></i></span>
+          <span><i class="fas fa-star"></i></span>
+          <span><i class="far fa-star"></i></span>
+          <span><i class="far fa-star"></i></span>
+        </div>
+        <!-- Links -->
+        <a href="#" class="btn btn-success mr-2">product</a>
+        <a href="#" class="btn btn-danger">info</a>
+      </div>
+
+
+     
+        
+                                  
+                  
+        
+
+
+
+
+                        
+                    </div>   
+                </div>
+
+
+                <div class="container mt-5 mb-3" style="background-color: #6895D2;border-radius: 20px;">
+                    <h2 style="text-align: center;">Integrate with Us</h2>
+                    <div class="row">
+                      <div class="col-md-3 text-center">
+                        <a href="" style="text-decoration: none ;color: black;">
+                          <i class="fas fa-envelope fa-3x"></i><br>Email
+                        </a>
+                      </div>
+                      <div class="col-md-3 text-center">
+                        <a href="https://wa.me/1234567890" style="text-decoration: none ;color: black;">
+                          <i class="fab fa-whatsapp fa-3x"></i><br>WhatsApp
+                        </a>
+                      </div>
+                      <div class="col-md-3 text-center">
+                        <a href="sms:+1234567890" style="text-decoration: none ;color: black;">
+                          <i class="fas fa-sms fa-3x"></i><br>SMS
+                        </a>
+                      </div>
+                      <div class="col-md-3 text-center">
+                        <a href="tel:+1234567890" style="text-decoration: none ;color: black;">
+                          <i class="fas fa-phone fa-3x"></i><br>Phone
+                        </a>
+                      </div>
+                    </div>
+                  </div>
+
+
+                  <div class="container mt-5 mb-3" style="background-color: #DCF2F1;border-radius: 20px;">
+                    <h4 style="font-family: Verdana, Geneva, Tahoma, sans-serif;">Our Fetures:</h4>
+                    <div class="row">
+                      <div class="col-md-5" style="border-radius: 20px;background-color: #E9F6FF;margin: 15px;">
+                        <h6>Title 1</h6>
+                        <p style="font-size: 18px;">Automate lead creation, team assignment, scheduled activities, and focus on what really matters.</p>
+                      </div>
+                      <div class="col-md-5" style="border-radius: 20px;background-color: #E9F6FF;margin: 15px;">
+                        <h6>Title 1</h6>
+                        <p style="font-size: 18px;">Automate lead creation, team assignment, scheduled activities, and focus on what really matters.</p>
+                      </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-5" style="border-radius: 20px;background-color: #E9F6FF;margin: 15px;">
+                            <h6>Title 1</h6>
+                            <p style="font-size: 18px;">Automate lead creation, team assignment, scheduled activities, and focus on what really matters.</p>
+                          </div>
+                          <div class="col-md-5" style="border-radius: 20px;background-color: #E9F6FF;margin: 15px;">
+                            <h6>Title 1</h6>
+                            <p style="font-size: 18px;">Automate lead creation, team assignment, scheduled activities, and focus on what really matters.</p>
+                          </div>
+                    </div>
+                  </div>
+       
+
+
+        
+        
         <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js"></script>
         <script>
-            $(function() {
-                $(".sub-card").draggable({
-                    revert: "invalid",
-                    cursor: "move"
-                });
-    
-                $("#archive").droppable({
-                    accept: ".sub-card",
-                    drop: function(event, ui) {
-                        $(ui.draggable).fadeOut(function() {
-                            $(this).appendTo("#archive").fadeIn();
-                        });
-                    }
-                });
+            function dragStart(event) {
+                
+                document.getElementById('archive-button').classList.add('shake');
+                
+                setTimeout(function() {
+                    document.getElementById('archive-button').classList.remove('shake');
+                }, 1000);
+                event.dataTransfer.setData("text", event.target.id);
+            }
+        
+            function allowDrop(event) {
+                event.preventDefault();
+            }
+        
+            function drop(event) {
+                event.preventDefault();
+                var data = event.dataTransfer.getData("text");
+                var nodeCopy = document.getElementById(data).cloneNode(true);
+                nodeCopy.id = "newId";
+                event.target.appendChild(nodeCopy);
+                // Remove the original item from its parent
+                document.getElementById(data).parentNode.removeChild(document.getElementById(data));
+            }
+        
+            document.getElementById("archive-button").addEventListener("click", function() {
+                // Check if there's a card being dragged
+                var draggedCard = document.querySelector(".dragging");
+                if (draggedCard) {
+                    // Get card data
+                    var cardData = {
+                        title: draggedCard.querySelector(".card-title").textContent,
+                        subtitle: draggedCard.querySelector(".card-subtitle").textContent,
+                        text: draggedCard.querySelector(".card-text").textContent,
+                        // Add other data you need
+                    };
+        
+                    // Store card data in local storage
+                    var archivedCards = JSON.parse(localStorage.getItem("archivedCards")) || [];
+                    archivedCards.push(cardData);
+                    localStorage.setItem("archivedCards", JSON.stringify(archivedCards));
+        
+                    // Remove the card from the DOM
+                    draggedCard.parentNode.removeChild(draggedCard);
+                }
+            });
+        
+            // Add event listener to remove shake class from archive button after animation ends
+            document.getElementById('archive-button').addEventListener('animationend', function() {
+                this.classList.remove('shake');
             });
         </script>
-       
-<script>
-    window.onload = function() {
-    document.getElementById("container").classList.remove("d-none");
-    document.getElementById("container").classList.add("slideInFromRight");
-};
-</script>
-    
-
 </div>
+
 </body>
 </html>
