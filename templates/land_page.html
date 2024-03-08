@@ -92,7 +92,86 @@
     border-radius: 3px;
     font-size: 12px;
 }
+.footer {
+    background-color: #343a40;
+    color: #fff;
+    padding: 20px;
+    display: flex;
+    flex-wrap: wrap; /* Allow items to wrap */
+    justify-content: space-around;
+}
 
+.footer-column {
+    flex: 1;
+    margin-right: 20px;
+    margin-bottom: 20px; /* Add margin bottom for spacing */
+}
+
+.footer-column:last-child {
+    margin-right: 0;
+}
+
+.footer h3 {
+    margin-bottom: 10px;
+}
+
+.footer a {
+    color: #fff;
+    text-decoration: none;
+    display: block;
+    margin-bottom: 5px;
+}
+
+.footer a i {
+    margin-right: 5px;
+}
+
+/* Media queries for responsiveness */
+@media (max-width: 768px) {
+    .footer {
+        flex-direction: column; /* Stack items vertically */
+        align-items: center; /* Center items horizontally */
+    }
+
+    .footer-column {
+        flex: 1;
+        margin-right: 0;
+        margin-bottom: 20px;
+    }
+
+    .footer-column:last-child {
+        margin-bottom: 0;
+    }
+}
+.popup-menu {
+    display: none;
+    position: absolute;
+    background-color: white;
+    border: 1px solid #ccc;
+    padding: 20px; /* Increase padding for more space */
+    border-radius: 20px;
+    display: none;
+    z-index: 999;
+    width: 220px; /* Set width */
+    height: auto; /* Auto height */
+    display: flex; /* Use flexbox */
+    flex-direction: column; /* Stack items vertically */
+    justify-content: center; /* Center items vertically */
+    align-items: center; /* Center items horizontally */
+}
+
+.popup-option {
+    background-color: #cfd949;
+    border-radius: 20px;
+    width: 180px;
+    padding: 10px;
+    margin-bottom: 10px; /* Add margin bottom to separate items */
+}
+
+.popup-option:last-child {
+    margin-bottom: 0; /* Remove margin bottom for the last item */
+}
+       
     </style>
 </head>
 <body>
@@ -270,9 +349,7 @@
          
 
 
-          <div class="archive-button shake mt-2" id="archive-button">
-            <a href="{% url 'archive' %}"><i class="fas fa-archive"></i></a>
-        </div>
+          
 
           <div class="container mt-5" >
            
@@ -280,13 +357,13 @@
 
                 
 
-                <div class="col-md-3 mb-2" style="border-right: 2px solid blue;background-color: #B7C9F2;">
+                <div class="col-md-3 mb-2 kanban-column" style="border-right: 2px solid blue;background-color: #B7C9F2;">
                   <div class="row">
                     <div class="col-md-3"> <h4>New</h4></div>
                     <div class="col-md-6"></div>
                     <div class="col-md-3"><a href="" style="text-decoration: none;color: black;font-size: 18px;" >+</a></div>
                   </div>
-                  <div class="card" draggable="true" ondragstart="dragStart(event)" style="border-radius: 20px;background-color: rgba(104, 149, 210, 0.1);">
+                  <div class="card-t" draggable="true" ondragstart="dragStart(event)" style="border-radius: 20px;background-color: rgba(104, 149, 210, 0.1);">
                     <div class="card-body">
                       <h6 class="card-title">Office Design</h6>
                       <h6 class="card-subtitle mb-2 text-muted " >$ 34.990</h6>
@@ -305,7 +382,7 @@
                     </div>
                   </div>
 
-                  <div class="card" draggable="true" ondragstart="dragStart(event)" style="border-radius: 20px;background-color: rgba(104, 149, 210, 0.1);">
+                  <div class="card-t" draggable="true" ondragstart="dragStart(event)" style="border-radius: 20px;background-color: rgba(104, 149, 210, 0.1);">
                     <div class="card-body">
                       <h6 class="card-title">Intrest in Your Product</h6>
                       <h6 class="card-subtitle mb-2 text-muted">$ 654.09</h6>
@@ -334,13 +411,13 @@
 
             
              </div>
-             <div class="col-md-3 mb-2" style="border-right: 2px solid blue;background-color: #B5C0D0;">
+             <div class="col-md-3 mb-2 kanban-column" style="border-right: 2px solid blue;background-color: #B5C0D0;">
                 <div class="row">
                   <div class="col-md-3"> <h4>Qualified</h4></div>
                   <div class="col-md-6"></div>
                   <div class="col-md-3"><a href="" style="text-decoration: none;color: black;font-size: 18px;" >+</a></div>
                 </div>
-                <div class="card" draggable="true" ondragstart="dragStart(event)" style="border-radius: 20px;background-color: rgba(104, 149, 210, 0.1);">
+                <div class="card-t" draggable="true" ondragstart="dragStart(event)" style="border-radius: 20px;background-color: rgba(104, 149, 210, 0.1);">
                   <div class="card-body">
                     <h6 class="card-title">need 20 desk</h6>
                     <h6 class="card-subtitle mb-2 text-muted">$ 545.98</h6>
@@ -359,9 +436,9 @@
                   </div>
                 </div>
 
-                <div class="card" draggable="true" ondragstart="dragStart(event)" style="border-radius: 20px;background-color: rgba(104, 149, 210, 0.1);">
+                <div class="card-t" draggable="true" ondragstart="dragStart(event)" style="border-radius: 20px;background-color: rgba(104, 149, 210, 0.1);">
                   <div class="card-body">
-                    <h4 class="card-title">pc desk</h4>
+                    <h6 class="card-title">pc desk</h6>
                     <h6 class="card-subtitle mb-2 text-muted">$ 4589.0</h6>
                     <p class="card-text">content of the card.</p>
                     <!-- Rating stars -->
@@ -382,13 +459,13 @@
                 </div>
                 
  </div>
- <div class="col-md-3 mb-2" style="border-right: 2px solid blue;background-color: #B7C9F2;">
+ <div class="col-md-3 mb-2 kanban-column" style="border-right: 2px solid blue;background-color: #B7C9F2;">
     <div class="row">
       <div class="col-md-3"> <h4>Proposition</h4></div>
       <div class="col-md-6"></div>
       <div class="col-md-3"><a href="" style="text-decoration: none;color: black;font-size: 18px;" >+</a></div>
     </div>
-    <div class="card" draggable="true" ondragstart="dragStart(event)" style="border-radius: 20px;background-color: rgba(104, 149, 210, 0.1);">
+    <div class="card-t" draggable="true" ondragstart="dragStart(event)" style="border-radius: 20px;background-color: rgba(104, 149, 210, 0.1);">
       <div class="card-body">
         <h6 class="card-title">open space design</h6>
         <h6 class="card-subtitle mb-2 text-muted">$ 654.00</h6>
@@ -407,9 +484,9 @@
       </div>
     </div>
 
-    <div class="card" draggable="true" ondragstart="dragStart(event)" style="border-radius: 20px;background-color: rgba(104, 149, 210, 0.1);">
+    <div class="card-t" draggable="true" ondragstart="dragStart(event)" style="border-radius: 20px;background-color: rgba(104, 149, 210, 0.1);">
       <div class="card-body">
-        <h4 class="card-title">office desugn</h4>
+        <h6 class="card-title">office design</h6>
         <h6 class="card-subtitle mb-2 text-muted">$ 321.00</h6>
         <p class="card-text">content of the card.</p>
         <!-- Rating stars -->
@@ -435,13 +512,13 @@
         
         
 </div>
-<div class="col-md-3 mb-2" style="border-right: 2px solid blue;background-color: #B5C0D0;">
+<div class="col-md-3 mb-2 kanban-column" style="border-right: 2px solid blue;background-color: #B5C0D0;">
     <div class="row">
       <div class="col-md-3"> <h4>Won</h4></div>
       <div class="col-md-6"></div>
       <div class="col-md-3"><a href="" style="text-decoration: none;color: black;font-size: 18px;" >+</a></div>
     </div>
-    <div class="card" draggable="true" ondragstart="dragStart(event)" style="border-radius: 20px;background-color: rgba(104, 149, 210, 0.1);">
+    <div class="card-t" draggable="true" ondragstart="dragStart(event)" style="border-radius: 20px;background-color: rgba(104, 149, 210, 0.1);">
       <div class="card-body">
         <h6 class="card-title">access online</h6>
         <h6 class="card-subtitle mb-2 text-muted">$ 56.00</h6>
@@ -460,7 +537,7 @@
       </div>
     </div>
 
-    <div class="card" draggable="true" ondragstart="dragStart(event)" style="border-radius: 20px;background-color: rgba(104, 149, 210, 0.1);">
+    <div class="card-t" draggable="true" ondragstart="dragStart(event)" style="border-radius: 20px;background-color: rgba(104, 149, 210, 0.1);">
       <div class="card-body">
         <h6 class="card-title">customizable desk</h6>
         <h6 class="card-subtitle mb-2 text-muted">$ 459.00</h6>
@@ -493,8 +570,12 @@
                 </div>
 
 
-                <div class="container mt-5 mb-3" style="background-color: #6895D2;border-radius: 20px;">
-                    <h2 style="text-align: center;">Integrate with Us</h2>
+
+               
+
+
+                <div class="container mt-5 mb-3" style="background-color: #6895D2;border-radius: 20px;padding: 30px;">
+                    <h2 class="mb-5" style="text-align: center;">Integrate with Us</h2>
                     <div class="row">
                       <div class="col-md-3 text-center">
                         <a href="" style="text-decoration: none ;color: black;">
@@ -522,7 +603,7 @@
 
                   <div class="container mt-5 mb-3" style="background-color: #DCF2F1;border-radius: 20px;">
                     <h4 style="font-family: Verdana, Geneva, Tahoma, sans-serif;">Our Fetures:</h4>
-                    <div class="row">
+                    <div class="row justify-content-center">
                       <div class="col-md-5" style="border-radius: 20px;background-color: #E9F6FF;margin: 15px;">
                         <h6>Title 1</h6>
                         <p style="font-size: 18px;">Automate lead creation, team assignment, scheduled activities, and focus on what really matters.</p>
@@ -532,7 +613,7 @@
                         <p style="font-size: 18px;">Automate lead creation, team assignment, scheduled activities, and focus on what really matters.</p>
                       </div>
                     </div>
-                    <div class="row">
+                    <div class="row justify-content-center">
                         <div class="col-md-5" style="border-radius: 20px;background-color: #E9F6FF;margin: 15px;">
                             <h6>Title 1</h6>
                             <p style="font-size: 18px;">Automate lead creation, team assignment, scheduled activities, and focus on what really matters.</p>
@@ -543,6 +624,12 @@
                           </div>
                     </div>
                   </div>
+            </div>
+
+
+            <div class="archive-container">
+              <!-- Archived Items will be dynamically added here -->
+            </div>
        
 
 
@@ -550,59 +637,138 @@
         
         <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js"></script>
-        <script>
-            function dragStart(event) {
-                
-                document.getElementById('archive-button').classList.add('shake');
-                
-                setTimeout(function() {
-                    document.getElementById('archive-button').classList.remove('shake');
-                }, 1000);
-                event.dataTransfer.setData("text", event.target.id);
-            }
         
-            function allowDrop(event) {
-                event.preventDefault();
-            }
-        
-            function drop(event) {
-                event.preventDefault();
-                var data = event.dataTransfer.getData("text");
-                var nodeCopy = document.getElementById(data).cloneNode(true);
-                nodeCopy.id = "newId";
-                event.target.appendChild(nodeCopy);
-                // Remove the original item from its parent
-                document.getElementById(data).parentNode.removeChild(document.getElementById(data));
-            }
-        
-            document.getElementById("archive-button").addEventListener("click", function() {
-                // Check if there's a card being dragged
-                var draggedCard = document.querySelector(".dragging");
-                if (draggedCard) {
-                    // Get card data
-                    var cardData = {
-                        title: draggedCard.querySelector(".card-title").textContent,
-                        subtitle: draggedCard.querySelector(".card-subtitle").textContent,
-                        text: draggedCard.querySelector(".card-text").textContent,
-                        // Add other data you need
-                    };
-        
-                    // Store card data in local storage
-                    var archivedCards = JSON.parse(localStorage.getItem("archivedCards")) || [];
-                    archivedCards.push(cardData);
-                    localStorage.setItem("archivedCards", JSON.stringify(archivedCards));
-        
-                    // Remove the card from the DOM
-                    draggedCard.parentNode.removeChild(draggedCard);
-                }
-            });
-        
-            // Add event listener to remove shake class from archive button after animation ends
-            document.getElementById('archive-button').addEventListener('animationend', function() {
-                this.classList.remove('shake');
-            });
-        </script>
+
+      
+</div>
+<footer class="footer">
+  <div class="footer-column">
+      <h3>Navigation</h3>
+      <a href="#">Community</a>
+      <a href="#">Tutorials</a>
+      <a href="#">Documentation</a>
+      <a href="#">Forum</a>
+      <a href="#">Open Source</a>
+      <a href="#">Download</a>
+      <a href="#">Github</a>
+      <a href="#">Runbot</a>
+      <a href="#">Translations</a>
+  </div>
+  <div class="footer-column">
+      <h3>Services</h3>
+      <a href="#">Services</a>
+      <a href="#">Odoo.sh Hosting</a>
+      <a href="#">Support</a>
+      <a href="#">Upgrade</a>
+      <a href="#">Custom Developments</a>
+      <a href="#">Education</a>
+  </div>
+  <div class="footer-column">
+      <h3>About Us</h3>
+      <a href="#">About us</a>
+      <a href="#">Our company</a>
+      <a href="#">Brand Assets</a>
+      <a href="#">Contact us</a>
+      <a href="#">Jobs</a>
+      <a href="#">Events</a>
+  </div>
+  <div class="footer-column">
+      <h3>Connect With Us</h3>
+      <a href="#"><i class="fas fa-envelope"></i> Email</a>
+      <a href="#"><i class="fab fa-whatsapp"></i> WhatsApp</a>
+      <a href="#"><i class="fas fa-sms"></i> SMS</a>
+      <a href="#"><i class="fas fa-phone"></i> Phone</a>
+  </div>
+</footer>
+
+
+
+
+<div class="popup-menu" id="popup-menu" style="display: none;">
+    <div id="archive-btn" class="popup-option" >Archive Card</div>
 </div>
 
+
+<script>
+  document.addEventListener('DOMContentLoaded', function() {
+      const bottomColumns = document.querySelectorAll('.card-t');
+      const popupMenu = document.getElementById('popup-menu');
+      let timeoutId; 
+
+      bottomColumns.forEach(column => {
+          column.addEventListener('dragover', showPopupMenu);
+      });
+
+      const archiveButton = document.getElementById('archive-btn');
+
+      archiveButton.addEventListener('drop', archiveCard);
+
+      document.body.addEventListener('drop', function(e) {
+          e.preventDefault();
+          const data = e.dataTransfer.getData('text/plain');
+          const draggedElement = document.getElementById(data);
+          const target = e.target;
+          if (target.classList.contains('archived')) {
+              target.appendChild(draggedElement);
+              draggedElement.parentNode.removeChild(draggedElement);
+
+              const archivedCards = JSON.parse(localStorage.getItem('archivedCards')) || [];
+              archivedCards.push(draggedElement.id);
+              localStorage.setItem('archivedCards', JSON.stringify(archivedCards));
+          }
+          hidePopupMenu();
+      });
+
+      function showPopupMenu(e) {
+          e.preventDefault();
+          const columnRect = e.currentTarget.getBoundingClientRect();
+          const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
+          const topOffset = columnRect.top + scrollTop;
+          popupMenu.style.display = 'block';
+          popupMenu.style.top = (topOffset + 10) + 'px';
+          popupMenu.style.left = (columnRect.left + 10) + 'px';
+
+          clearTimeout(timeoutId);
+          timeoutId = setTimeout(hidePopupMenu, 2000);
+      }
+
+      function hidePopupMenu() {
+          popupMenu.style.display = 'none';
+      }
+
+      function dragStart(event) {
+          event.dataTransfer.setData('text/plain', event.target.id);
+      }
+
+      const draggableItems = document.querySelectorAll('.draggable');
+
+      draggableItems.forEach(item => {
+          item.addEventListener('dragstart', dragStart);
+          item.addEventListener('dragover', showPopupMenu); // Attach dragover event to cards
+      });
+
+      // Function to handle archiving the card
+      function archiveCard(e) {
+          e.preventDefault();
+          const data = e.dataTransfer.getData('text/plain');
+          const draggedElement = document.getElementById(data);
+
+          // Check if the drop target is the archive button
+          if (e.currentTarget === archiveButton) {
+              const archivedCards = JSON.parse(localStorage.getItem('archivedCards')) || [];
+              archivedCards.push(draggedElement.id);
+              localStorage.setItem('archivedCards', JSON.stringify(archivedCards));
+
+              draggedElement.remove();
+
+              alert('Item successfully Archived!');
+          }
+
+          hidePopupMenu();
+      }
+  });
+</script>
 </body>
+
+
 </html>
