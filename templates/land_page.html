@@ -65,33 +65,7 @@
     }
    
 
-    .archive-button {
-      
-      position: absolute;
-      right: 20%;
-     
-      transform: translateY(-50%);
-      font-style: italic;
-      background-color: #fff;
-      border: 1px solid #ccc;
-      padding: 5px 10px;
-      border-radius: 5px;
-    }
-
     
-
-    
-    .archive-button:hover::after {
-    content: "Archives";
-    position: absolute;
-    top: -25px;
-    right: -10px;
-    background-color: #333;
-    color: #fff;
-    padding: 3px 8px;
-    border-radius: 3px;
-    font-size: 12px;
-}
 .footer {
     background-color: #343a40;
     color: #fff;
@@ -143,34 +117,17 @@
         margin-bottom: 0;
     }
 }
-.popup-menu {
-    display: none;
-    position: absolute;
-    background-color: white;
-    border: 1px solid #ccc;
-    padding: 20px; /* Increase padding for more space */
-    border-radius: 20px;
-    display: none;
-    z-index: 999;
-    width: 220px; /* Set width */
-    height: auto; /* Auto height */
-    display: flex; /* Use flexbox */
-    flex-direction: column; /* Stack items vertically */
-    justify-content: center; /* Center items vertically */
-    align-items: center; /* Center items horizontally */
+.archive-popup {
+  position: fixed;
+  bottom: 380px;
+  right: 400px;
+  background-color: #ffffff;
+  border: 1px solid #ccc;
+  padding: 10px;
+  border-radius: 5px;
+  display: none;
 }
 
-.popup-option {
-    background-color: #cfd949;
-    border-radius: 20px;
-    width: 180px;
-    padding: 10px;
-    margin-bottom: 10px; /* Add margin bottom to separate items */
-}
-
-.popup-option:last-child {
-    margin-bottom: 0; /* Remove margin bottom for the last item */
-}
        
     </style>
 </head>
@@ -200,6 +157,9 @@
                         <div class="dropdown-divider"></div>
                         <a class="dropdown-item" href="#">Something else here</a>
                       </div>
+                    </li>
+                    <li class="nav-item">
+                      <a href="{% url 'dash' %}" class="nav-link" href="#">Dash</a>
                     </li>
                     <li class="nav-item">
                       <a class="nav-link " href="#">Features</a>
@@ -363,7 +323,7 @@
                     <div class="col-md-6"></div>
                     <div class="col-md-3"><a href="" style="text-decoration: none;color: black;font-size: 18px;" >+</a></div>
                   </div>
-                  <div class="card-t" draggable="true" ondragstart="dragStart(event)" style="border-radius: 20px;background-color: rgba(104, 149, 210, 0.1);">
+                  <div class="card-t data-mdb-drag-handle" draggable="true" id="cardd1" ondragstart="drag(event)" style="border-radius: 20px;background-color: rgba(104, 149, 210, 0.1);">
                     <div class="card-body">
                       <h6 class="card-title">Office Design</h6>
                       <h6 class="card-subtitle mb-2 text-muted " >$ 34.990</h6>
@@ -382,7 +342,7 @@
                     </div>
                   </div>
 
-                  <div class="card-t" draggable="true" ondragstart="dragStart(event)" style="border-radius: 20px;background-color: rgba(104, 149, 210, 0.1);">
+                  <div class="card-t" draggable="true" id="cardd2" ondragstart="drag(event)" style="border-radius: 20px;background-color: rgba(104, 149, 210, 0.1);">
                     <div class="card-body">
                       <h6 class="card-title">Intrest in Your Product</h6>
                       <h6 class="card-subtitle mb-2 text-muted">$ 654.09</h6>
@@ -417,7 +377,7 @@
                   <div class="col-md-6"></div>
                   <div class="col-md-3"><a href="" style="text-decoration: none;color: black;font-size: 18px;" >+</a></div>
                 </div>
-                <div class="card-t" draggable="true" ondragstart="dragStart(event)" style="border-radius: 20px;background-color: rgba(104, 149, 210, 0.1);">
+                <div class="card-t" draggable="true" id="cardd3" ondragstart="drag(event)" style="border-radius: 20px;background-color: rgba(104, 149, 210, 0.1);">
                   <div class="card-body">
                     <h6 class="card-title">need 20 desk</h6>
                     <h6 class="card-subtitle mb-2 text-muted">$ 545.98</h6>
@@ -436,7 +396,7 @@
                   </div>
                 </div>
 
-                <div class="card-t" draggable="true" ondragstart="dragStart(event)" style="border-radius: 20px;background-color: rgba(104, 149, 210, 0.1);">
+                <div class="card-t" draggable="true" id="cardd4" ondragstart="drag(event)" style="border-radius: 20px;background-color: rgba(104, 149, 210, 0.1);">
                   <div class="card-body">
                     <h6 class="card-title">pc desk</h6>
                     <h6 class="card-subtitle mb-2 text-muted">$ 4589.0</h6>
@@ -465,7 +425,7 @@
       <div class="col-md-6"></div>
       <div class="col-md-3"><a href="" style="text-decoration: none;color: black;font-size: 18px;" >+</a></div>
     </div>
-    <div class="card-t" draggable="true" ondragstart="dragStart(event)" style="border-radius: 20px;background-color: rgba(104, 149, 210, 0.1);">
+    <div class="card-t" draggable="true" id="cardd5" ondragstart="drag(event)" style="border-radius: 20px;background-color: rgba(104, 149, 210, 0.1);">
       <div class="card-body">
         <h6 class="card-title">open space design</h6>
         <h6 class="card-subtitle mb-2 text-muted">$ 654.00</h6>
@@ -484,7 +444,7 @@
       </div>
     </div>
 
-    <div class="card-t" draggable="true" ondragstart="dragStart(event)" style="border-radius: 20px;background-color: rgba(104, 149, 210, 0.1);">
+    <div class="card-t" draggable="true" id="cardd6" ondragstart="drag(event)" style="border-radius: 20px;background-color: rgba(104, 149, 210, 0.1);">
       <div class="card-body">
         <h6 class="card-title">office design</h6>
         <h6 class="card-subtitle mb-2 text-muted">$ 321.00</h6>
@@ -518,7 +478,7 @@
       <div class="col-md-6"></div>
       <div class="col-md-3"><a href="" style="text-decoration: none;color: black;font-size: 18px;" >+</a></div>
     </div>
-    <div class="card-t" draggable="true" ondragstart="dragStart(event)" style="border-radius: 20px;background-color: rgba(104, 149, 210, 0.1);">
+    <div class="card-t" draggable="true" id="cardd" ondragstart="drag(event)" style="border-radius: 20px;background-color: rgba(104, 149, 210, 0.1);">
       <div class="card-body">
         <h6 class="card-title">access online</h6>
         <h6 class="card-subtitle mb-2 text-muted">$ 56.00</h6>
@@ -537,7 +497,7 @@
       </div>
     </div>
 
-    <div class="card-t" draggable="true" ondragstart="dragStart(event)" style="border-radius: 20px;background-color: rgba(104, 149, 210, 0.1);">
+    <div class="card-t" draggable="true" id="cardd" ondragstart="drag(event)" style="border-radius: 20px;background-color: rgba(104, 149, 210, 0.1);">
       <div class="card-body">
         <h6 class="card-title">customizable desk</h6>
         <h6 class="card-subtitle mb-2 text-muted">$ 459.00</h6>
@@ -684,90 +644,52 @@
 
 
 
-<div class="popup-menu" id="popup-menu" style="display: none;">
-    <div id="archive-btn" class="popup-option" >Archive Card</div>
+<div id="archivePopup" class="archive-popup">
+  <button id="archiveButton" class="btn btn-primary">Archive</button>
 </div>
 
 
 <script>
-  document.addEventListener('DOMContentLoaded', function() {
-      const bottomColumns = document.querySelectorAll('.card-t');
-      const popupMenu = document.getElementById('popup-menu');
-      let timeoutId; 
-
-      bottomColumns.forEach(column => {
-          column.addEventListener('dragover', showPopupMenu);
-      });
-
-      const archiveButton = document.getElementById('archive-btn');
-
-      archiveButton.addEventListener('drop', archiveCard);
-
-      document.body.addEventListener('drop', function(e) {
-          e.preventDefault();
-          const data = e.dataTransfer.getData('text/plain');
-          const draggedElement = document.getElementById(data);
-          const target = e.target;
-          if (target.classList.contains('archived')) {
-              target.appendChild(draggedElement);
-              draggedElement.parentNode.removeChild(draggedElement);
-
-              const archivedCards = JSON.parse(localStorage.getItem('archivedCards')) || [];
-              archivedCards.push(draggedElement.id);
-              localStorage.setItem('archivedCards', JSON.stringify(archivedCards));
-          }
-          hidePopupMenu();
-      });
-
-      function showPopupMenu(e) {
-          e.preventDefault();
-          const columnRect = e.currentTarget.getBoundingClientRect();
-          const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
-          const topOffset = columnRect.top + scrollTop;
-          popupMenu.style.display = 'block';
-          popupMenu.style.top = (topOffset + 10) + 'px';
-          popupMenu.style.left = (columnRect.left + 10) + 'px';
-
-          clearTimeout(timeoutId);
-          timeoutId = setTimeout(hidePopupMenu, 2000);
-      }
-
-      function hidePopupMenu() {
-          popupMenu.style.display = 'none';
-      }
-
-      function dragStart(event) {
-          event.dataTransfer.setData('text/plain', event.target.id);
-      }
-
-      const draggableItems = document.querySelectorAll('.draggable');
-
-      draggableItems.forEach(item => {
-          item.addEventListener('dragstart', dragStart);
-          item.addEventListener('dragover', showPopupMenu); // Attach dragover event to cards
-      });
-
-      // Function to handle archiving the card
-      function archiveCard(e) {
-          e.preventDefault();
-          const data = e.dataTransfer.getData('text/plain');
-          const draggedElement = document.getElementById(data);
-
-          // Check if the drop target is the archive button
-          if (e.currentTarget === archiveButton) {
-              const archivedCards = JSON.parse(localStorage.getItem('archivedCards')) || [];
-              archivedCards.push(draggedElement.id);
-              localStorage.setItem('archivedCards', JSON.stringify(archivedCards));
-
-              draggedElement.remove();
-
-              alert('Item successfully Archived!');
-          }
-
-          hidePopupMenu();
-      }
+  function drag(ev) {
+      ev.dataTransfer.setData("text", ev.target.id);
+      showPopup();
+  }
+  
+  // Show archive popup
+  function showPopup() {
+      var popup = document.getElementById("archivePopup");
+      popup.style.display = "block";
+  }
+  
+  // Hide archive popup
+  function hidePopup() {
+      var popup = document.getElementById("archivePopup");
+      popup.style.display = "none";
+  }
+  
+  // Prevent default behavior for dragover event
+  document.getElementById("archiveButton").addEventListener("dragover", function(ev) {
+      ev.preventDefault();
   });
-</script>
+  
+  // Archive button drop event
+  document.getElementById("archiveButton").addEventListener("drop", function(ev) {
+      ev.preventDefault();
+      var cardId = ev.dataTransfer.getData("text");
+    
+      // Archive card to local storage
+      var archivedCards = JSON.parse(localStorage.getItem("archivedCards")) || [];
+      archivedCards.push(cardId);
+      localStorage.setItem("archivedCards", JSON.stringify(archivedCards));
+    
+      // Remove card from its original position
+      var card = document.getElementById(cardId);
+      card.parentNode.removeChild(card);
+    
+      hidePopup(); // Hide the archive popup after archiving
+      alert('Archive successful');
+  });
+  </script>
 </body>
 
 

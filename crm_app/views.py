@@ -8,3 +8,5 @@ def home(request):
 
 def archive(request):
     return render(request,'archive.html')
+def dash(request):
+    return render(request,'dash.html')
