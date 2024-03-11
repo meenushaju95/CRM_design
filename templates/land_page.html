@@ -14,7 +14,7 @@
     
     <style>
         body{
-            background-color:  #d7e3fc;
+            background-color:  #ACB1D6;
             background-repeat: no-repeat;
             background-size: cover;
         }
@@ -119,14 +119,31 @@
 }
 .archive-popup {
   position: fixed;
-  bottom: 380px;
+  bottom: 580px;
   right: 400px;
   background-color: #ffffff;
   border: 1px solid #ccc;
   padding: 10px;
-  border-radius: 5px;
+  border-radius: 10px;
+  width: 200px;
   display: none;
 }
+@keyframes rotate {
+    from {
+      transform: rotate(0deg);
+    }
+    to {
+      transform: rotate(360deg);
+    }
+  }
+
+  /* Apply the animation to the icon */
+  #archiveButton::after {
+    content: "\f0e2"; 
+    font-family: FontAwesome; /* Assuming you're using FontAwesome */
+    display: inline-block;
+    animation: rotate 2s linear infinite; 
+  }
 
        
     </style>
@@ -135,7 +152,7 @@
     <div class="container-fluid">
 
 
-        <div class="container mt-1" style="background-color: #abc4ff; border-radius: 20px; padding: 8px;">
+        <div class="container mt-1" style="background-color: #8294C4; border-radius: 20px; padding: 8px;">
             <nav class="navbar navbar-expand-lg navbar-light ">
                 <a class="navbar-brand" href="#">BITRIX24</a>
                 <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
@@ -311,19 +328,22 @@
 
           
 
-          <div class="container mt-5" >
+          <div class="container mt-5" id="con" >
+            <div id="kanban-board">
            
-            <div class="row">
+            
+            
+              <div class="row" >
 
                 
 
-                <div class="col-md-3 mb-2 kanban-column" style="border-right: 2px solid blue;background-color: #B7C9F2;">
+                <div class="col-md-3 mb-2 kanban-column" id="new-column" original-column-id="new"  style="border-right: 2px solid blue;background-color: #937DC2;border-radius: 30px;padding: 10px;">
                   <div class="row">
                     <div class="col-md-3"> <h4>New</h4></div>
                     <div class="col-md-6"></div>
                     <div class="col-md-3"><a href="" style="text-decoration: none;color: black;font-size: 18px;" >+</a></div>
                   </div>
-                  <div class="card-t data-mdb-drag-handle" draggable="true" id="cardd1" ondragstart="drag(event)" style="border-radius: 20px;background-color: rgba(104, 149, 210, 0.1);">
+                  <div class="card-t data-mdb-drag-handle" draggable="true" id="cardd1" data-original-column-id="new-column" ondragstart="drag(event)" style="border-radius: 20px;background-color: #C8B6E2;margin: 15px;">
                     <div class="card-body">
                       <h6 class="card-title">Office Design</h6>
                       <h6 class="card-subtitle mb-2 text-muted " >$ 34.990</h6>
@@ -342,7 +362,7 @@
                     </div>
                   </div>
 
-                  <div class="card-t" draggable="true" id="cardd2" ondragstart="drag(event)" style="border-radius: 20px;background-color: rgba(104, 149, 210, 0.1);">
+                  <div class="card-t" draggable="true" id="cardd2"  ondragstart="drag(event)" style="border-radius: 20px;background-color: #C8B6E2;margin: 15px;">
                     <div class="card-body">
                       <h6 class="card-title">Intrest in Your Product</h6>
                       <h6 class="card-subtitle mb-2 text-muted">$ 654.09</h6>
@@ -371,13 +391,13 @@
 
             
              </div>
-             <div class="col-md-3 mb-2 kanban-column" style="border-right: 2px solid blue;background-color: #B5C0D0;">
+             <div class="col-md-3 mb-2 kanban-column" id="qualified-column" original-column-id="qualified"  style="border-right: 2px solid blue;background-color: #C689C6;border-radius: 30px;padding: 10px;">
                 <div class="row">
                   <div class="col-md-3"> <h4>Qualified</h4></div>
                   <div class="col-md-6"></div>
                   <div class="col-md-3"><a href="" style="text-decoration: none;color: black;font-size: 18px;" >+</a></div>
                 </div>
-                <div class="card-t" draggable="true" id="cardd3" ondragstart="drag(event)" style="border-radius: 20px;background-color: rgba(104, 149, 210, 0.1);">
+                <div class="card-t" draggable="true" id="cardd3"  ondragstart="drag(event)" style="border-radius: 20px;background-color: #C8B6E2;margin: 15px;">
                   <div class="card-body">
                     <h6 class="card-title">need 20 desk</h6>
                     <h6 class="card-subtitle mb-2 text-muted">$ 545.98</h6>
@@ -396,7 +416,7 @@
                   </div>
                 </div>
 
-                <div class="card-t" draggable="true" id="cardd4" ondragstart="drag(event)" style="border-radius: 20px;background-color: rgba(104, 149, 210, 0.1);">
+                <div class="card-t" draggable="true"  id="cardd4" ondragstart="drag(event)" style="border-radius: 20px;background-color: #C8B6E2;margin: 15px;">
                   <div class="card-body">
                     <h6 class="card-title">pc desk</h6>
                     <h6 class="card-subtitle mb-2 text-muted">$ 4589.0</h6>
@@ -419,13 +439,13 @@
                 </div>
                 
  </div>
- <div class="col-md-3 mb-2 kanban-column" style="border-right: 2px solid blue;background-color: #B7C9F2;">
+ <div class="col-md-3 mb-2 kanban-column" id="proposition-column" original-column-id="preposition"  style="border-right: 2px solid blue;background-color: #937DC2;border-radius: 30px;padding: 10px;">
     <div class="row">
       <div class="col-md-3"> <h4>Proposition</h4></div>
       <div class="col-md-6"></div>
       <div class="col-md-3"><a href="" style="text-decoration: none;color: black;font-size: 18px;" >+</a></div>
     </div>
-    <div class="card-t" draggable="true" id="cardd5" ondragstart="drag(event)" style="border-radius: 20px;background-color: rgba(104, 149, 210, 0.1);">
+    <div class="card-t" draggable="true" id="cardd5"  ondragstart="drag(event)" style="border-radius: 20px;background-color: #C8B6E2;margin: 15px;">
       <div class="card-body">
         <h6 class="card-title">open space design</h6>
         <h6 class="card-subtitle mb-2 text-muted">$ 654.00</h6>
@@ -444,7 +464,7 @@
       </div>
     </div>
 
-    <div class="card-t" draggable="true" id="cardd6" ondragstart="drag(event)" style="border-radius: 20px;background-color: rgba(104, 149, 210, 0.1);">
+    <div class="card-t" draggable="true" id="cardd6"  ondragstart="drag(event)" style="border-radius: 20px;background-color: #C8B6E2;margin: 15px;">
       <div class="card-body">
         <h6 class="card-title">office design</h6>
         <h6 class="card-subtitle mb-2 text-muted">$ 321.00</h6>
@@ -472,13 +492,13 @@
         
         
 </div>
-<div class="col-md-3 mb-2 kanban-column" style="border-right: 2px solid blue;background-color: #B5C0D0;">
+<div class="col-md-3 mb-2 kanban-column" id="won-column" original-column-id="won"  style="border-right: 2px solid blue;background-color: #C689C6;border-radius: 30px;padding: 10px;">
     <div class="row">
       <div class="col-md-3"> <h4>Won</h4></div>
       <div class="col-md-6"></div>
       <div class="col-md-3"><a href="" style="text-decoration: none;color: black;font-size: 18px;" >+</a></div>
     </div>
-    <div class="card-t" draggable="true" id="cardd" ondragstart="drag(event)" style="border-radius: 20px;background-color: rgba(104, 149, 210, 0.1);">
+    <div class="card-t" draggable="true" id="cardd7"  ondragstart="drag(event)" style="border-radius: 20px;background-color: #C8B6E2;margin: 15px;">
       <div class="card-body">
         <h6 class="card-title">access online</h6>
         <h6 class="card-subtitle mb-2 text-muted">$ 56.00</h6>
@@ -497,7 +517,7 @@
       </div>
     </div>
 
-    <div class="card-t" draggable="true" id="cardd" ondragstart="drag(event)" style="border-radius: 20px;background-color: rgba(104, 149, 210, 0.1);">
+    <div class="card-t" draggable="true" id="cardd8"  ondragstart="drag(event)" style="border-radius: 20px;background-color: #C8B6E2;margin: 15px;">
       <div class="card-body">
         <h6 class="card-title">customizable desk</h6>
         <h6 class="card-subtitle mb-2 text-muted">$ 459.00</h6>
@@ -524,10 +544,12 @@
 
 
 
-
+    </div>
                         
                     </div>   
                 </div>
+            </div>
+          </div>
 
 
 
@@ -645,7 +667,7 @@
 
 
 <div id="archivePopup" class="archive-popup">
-  <button id="archiveButton" class="btn btn-primary">Archive</button>
+  <button id="archiveButton" class="btn btn-primary"> <i class="fa fa-archive" style="width: 150px;"></i> Archive</button>
 </div>
 
 
@@ -653,41 +675,45 @@
   function drag(ev) {
       ev.dataTransfer.setData("text", ev.target.id);
       showPopup();
+      setTimeout(hidePopup, 3000);
   }
   
-  // Show archive popup
+  
   function showPopup() {
       var popup = document.getElementById("archivePopup");
       popup.style.display = "block";
   }
   
-  // Hide archive popup
+  
   function hidePopup() {
       var popup = document.getElementById("archivePopup");
       popup.style.display = "none";
   }
   
-  // Prevent default behavior for dragover event
+  
   document.getElementById("archiveButton").addEventListener("dragover", function(ev) {
       ev.preventDefault();
   });
   
-  // Archive button drop event
+  
   document.getElementById("archiveButton").addEventListener("drop", function(ev) {
       ev.preventDefault();
       var cardId = ev.dataTransfer.getData("text");
+      var cardBody = document.getElementById(cardId).innerHTML;
+    localStorage.setItem(cardId, cardBody);
     
-      // Archive card to local storage
+      
       var archivedCards = JSON.parse(localStorage.getItem("archivedCards")) || [];
+      
       archivedCards.push(cardId);
       localStorage.setItem("archivedCards", JSON.stringify(archivedCards));
     
-      // Remove card from its original position
+      
       var card = document.getElementById(cardId);
       card.parentNode.removeChild(card);
     
-      hidePopup(); // Hide the archive popup after archiving
-      alert('Archive successful');
+      hidePopup(); 
+      alert('Archive Item Successfully!!');
   });
   </script>
 </body>

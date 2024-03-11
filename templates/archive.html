@@ -1,46 +1,201 @@
-{% extends 'base.html' %}
-{% block content %}
-    <div class="row">
-        <!-- Main Content for Archive Page -->
-        <main class="col-md-10 ms-sm-auto col-lg-10 px-md-4">
-            <h1>Archives</h1>
-            <div id="archivedItems"></div>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CRM</title>
+    <!-- Include Bootstrap CSS -->
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Include Font Awesome for icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://kit.fontawesome.com/274ee977b7.js" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <style>
+        .sidebar {
+            display: none;
+           
+        }
+        .sidebar.active {
+            display: block;
+        }
+        /* Adjust sidebar height to fit the viewport */
+        .sidebar {
+            min-height: 100vh;
+            overflow-y: auto; /* Enable vertical scrolling */
+        }
+        .nav-item {
+            border-radius: 10px;
+            margin-bottom: 10px;
+        }
+        .nav-link {
+            border-radius: 10px;
+            padding: 10px;
+            color: #000; /* Change color to black */
+            font-family: cursive; /* Apply curved font */
+            background-color: #B7C9F2; /* Change background color */
+        }
+        .nav-link.active {
+            background-color: #007bff;
+        }
+        .p-3.rounded.bg-light {
+    border-radius: 50px;
+    background-color: #B5C0D0;
+    margin: 10px; /* You can adjust the color as needed */
+}
+canvas {
+    width: 100% !important;
+    height: auto !important;
+}
+td,th{
+    font-family: cursive;
+}
+.undo-btn {
+        background-color: rgb(174, 125, 170); /* Green */
+        border: none;
+        color: white;
+        padding: 10px 20px;
+        text-align: center;
+        text-decoration: none;
+        display: inline-block;
+        font-size: 16px;
+        margin-left: 70px;
+        transition-duration: 0.4s;
+        cursor: pointer;
+        border-radius: 12px;
+    }
+
+   
+    .archived-card {
+    border: 1px solid #ccc; 
+    border-radius: 10px; 
+    overflow: hidden; 
+   margin: 8px;
+   padding: 10px;
+}
+    
+   
+    </style>
+</head>
+<body>
+    <nav class="navbar navbar-expand-md navbar-light bg-light">
+        <div class="container-fluid">
+            <!-- Brand -->
+            <button class="navbar-toggler" type="button" id="toggle-btn">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+        </div>
+    </nav>
+
+    <div class="container-fluid">
+        <div class="row">
+            <!-- Vertical Navbar -->
+            <nav class="col-md-2 d-md-block bg-light sidebar">
+                <!-- Logo and CRM text -->
+                <div class="navbar-brand d-flex align-items-center justify-content-center mb-3">
+                    <img src="https://tse2.mm.bing.net/th?id=OIP.hHoOUi-6-WDKnb6A7lSa0QHaGP&pid=Api&P=0&h=180" class="mr-2" style="height: 60px;width: 60px;border-radius: 50%;">
+                    <span style="font-family:cursive;font-size: 28px;">CRM</span>
+                </div>
+                
+                <!-- Search Bar -->
+                <form class="mb-3">
+                    <input type="text" class="form-control" placeholder="Search..." aria-label="Search" aria-describedby="button-addon2" style="border-radius: 20px;">
+                </form>
+                
+                <!-- Nav Items -->
+                <ul class="nav flex-column mb-3">
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">
+                            <i class="fas fa-home"></i> Dashboard
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">
+                            <i class="fas fa-user"></i> Profile
+                        </a>
+                    </li>
+                   
+                    <li class="nav-item">
+                        <a class="nav-link" href="{% url 'archive' %}">
+                            <i class="fas fa-archive"></i> Archive
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">
+                            <i class="fas fa-shopping-cart"></i> Sale Cart
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">
+                            <i class="fas fa-envelope"></i> Messages
+                        </a>
+                    </li>
+                </ul>
+            </nav>
+
+            <div id="archived-cards-container" >
+                <!-- Archived cards will be dynamically added here -->
+            </div>
+        
+            <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
             <script>
-              // Retrieve archived card IDs from local storage
-              var archivedCards = JSON.parse(localStorage.getItem("archivedCards")) || [];
-      
-              // Display archived cards on the archive page
-              var archiveContainer = document.getElementById("archiveContainer");
-              archivedCards.forEach(function(cardId) {
-                  var archivedCard = document.createElement("div");
-                  archivedCard.textContent = "Archived card with ID: " + cardId;
-      
-                  // Create undo button
-                  var undoButton = document.createElement("button");
-                  undoButton.textContent = "Undo";
-                  undoButton.addEventListener("click", function() {
-                      // Restore card to its original position
-                      var card = document.getElementById(cardId);
-                      if (card) {
-                          document.body.appendChild(card); // Append to body or another container
-                      }
-      
-                      // Remove card ID from archivedCards array
-                      var index = archivedCards.indexOf(cardId);
-                      if (index !== -1) {
-                          archivedCards.splice(index, 1);
-                          localStorage.setItem("archivedCards", JSON.stringify(archivedCards));
-                      }
-      
-                      // Remove archived card from the archive page
-                      archivedCard.remove();
-                  });
-      
-                  // Append archived card and undo button to the archive container
-                  archiveContainer.appendChild(archivedCard);
-                  archiveContainer.appendChild(undoButton);
-              });
-          </script>
-        </main>
-    </div>
-{% endblock %}
+                $(document).ready(function() {
+                    
+                    var archivedCards = JSON.parse(localStorage.getItem("archivedCards")) || [];
+            
+                   
+                    var archivedCardsHTML = "";
+                    for (var i = 0; i < archivedCards.length; i++) {
+                        var cardId = archivedCards[i];
+                        var cardBody = localStorage.getItem(cardId);
+                        var originalColumnId = localStorage.getItem(cardId + "_column"); 
+                        archivedCardsHTML += `
+                            <div class="archived-card" id="archived-${cardId}">
+                                <div class="card-body">${cardBody}</div>
+                                <button class="undo-btn" data-card-id="${cardId}" data-original-column-id="${originalColumnId}">Undo</button>
+                            </div>
+                        `;
+                    }
+            
+                    // Append archived cards HTML to the container
+                    $("#archived-cards-container").html(archivedCardsHTML);
+            
+                   
+                    $(".undo-btn").click(function() {
+                        var cardId = $(this).data("card-id");
+                        var originalColumnId = $(this).data("original-column-id"); // Retrieve the original column ID
+            
+                        
+                        restoreCard(cardId, originalColumnId);
+            
+                        
+                        var index = archivedCards.indexOf(cardId);
+                        if (index !== -1) {
+                            archivedCards.splice(index, 1);
+                            localStorage.setItem("archivedCards", JSON.stringify(archivedCards));
+                        }
+            
+                        
+                        $("#archived-" + cardId).remove();
+                        
+            
+                       
+                        if ($("#archived-cards-container").children().length === 0) {
+                            $("#archivedCardsSection").hide();
+                            alert('Item Unarchived successfully!!')
+                        }
+                    });
+            
+                    
+                    function restoreCard(cardId, originalColumnId) {
+                        var cardBody = localStorage.getItem(cardId);
+            
+                       
+                        $("#" + originalColumnId).append(`<div class="card-t" draggable="true" id="${cardId}" ondragstart="drag(event)" style="border-radius: 20px;background-color: rgba(104, 149, 210, 0.1);">${cardBody}</div>`);
+                    }
+                });
+            </script>
+            
+</body>
+</html>

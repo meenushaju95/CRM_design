@@ -48,7 +48,7 @@ canvas {
     width: 100% !important;
     height: auto !important;
 }
-td{
+td,th{
     font-family: cursive;
 }
     </style>
@@ -132,14 +132,14 @@ td{
                 <div class="container-fluid">
                     <div class="row">
                         <!-- Container for Sales Report Pie Chart -->
-                        <div class="col-md-6">
+                        <div  class="col-md-6 p-5" style="border-radius: 16px;">
                             <div class="p-3 rounded bg-light">
                                 <!-- Include your pie chart here -->
                                 <canvas id="pieChart" width="100%" height="100%"></canvas>
                             </div>
                         </div>
                         <!-- Container for Bar Chart -->
-                        <div class="col-md-6">
+                        <div class="col-md-6 p-5" style="border-radius: 16px;">
                             <div class="p-3 rounded bg-light">
                                 <!-- Include your bar chart here -->
                                 <canvas id="barChart" width="100%" height="100%"></canvas>
@@ -153,7 +153,7 @@ td{
                         <!-- Sales Report -->
                         
                             <div class="p-3 rounded bg-light">
-                                <h4 class="mb-4">Today Sales</h4>
+                                <h4 class="mb-4" style="font-family: cursive;">Today Sales</h4>
                                 <div class="table-responsive">
                                     <table class="table">
                                         <thead>
