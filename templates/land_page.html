@@ -14,7 +14,7 @@
     
     <style>
         body{
-            background-color:  #ACB1D6;
+           background-color: #838ba4;
             background-repeat: no-repeat;
             background-size: cover;
         }
@@ -40,6 +40,7 @@
             
             color: #888; 
         }
+       
 
         button[type="submit"] {
             display: none; 
@@ -152,9 +153,9 @@
     <div class="container-fluid">
 
 
-        <div class="container mt-1" style="background-color: #8294C4; border-radius: 20px; padding: 8px;">
+        <div class="container mt-1" style="background-color: #182978; border-radius: 20px; padding: 8px;">
             <nav class="navbar navbar-expand-lg navbar-light ">
-                <a class="navbar-brand" href="#">BITRIX24</a>
+                <a class="navbar-brand" href="#" style="color: white;">BITRIX24</a>
                 <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                   <span class="navbar-toggler-icon"></span>
                 </button>
@@ -165,7 +166,7 @@
                     
                     
                     <li class="nav-item dropdown">
-                      <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                      <a class="nav-link dropdown-toggle" style="color: white;" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                         CRM
                       </a>
                       <div class="dropdown-menu" aria-labelledby="navbarDropdown">
@@ -176,13 +177,13 @@
                       </div>
                     </li>
                     <li class="nav-item">
-                      <a href="{% url 'dash' %}" class="nav-link" href="#">Dash</a>
+                      <a href="{% url 'dash' %}" class="nav-link" href="#" style="color: white;">Dash</a>
                     </li>
                     <li class="nav-item">
-                      <a class="nav-link " href="#">Features</a>
+                      <a class="nav-link " href="#" style="color: white;">Features</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="#">Overview</a>
+                        <a class="nav-link" href="#" style="color: white;">Overview</a>
                       </li>
                       
                   </ul>
@@ -337,7 +338,7 @@
 
                 
 
-                <div class="col-md-3 mb-2 kanban-column" id="new-column" original-column-id="new"  style="border-right: 2px solid blue;background-color: #937DC2;border-radius: 30px;padding: 10px;">
+                <div class="col-md-3 mb-2 kanban-column" id="new-column" original-column-id="new"  style="border-right: 2px solid blue;background-color: #ab56a0;border-radius: 30px;padding: 10px;">
                   <div class="row">
                     <div class="col-md-3"> <h4>New</h4></div>
                     <div class="col-md-6"></div>
@@ -391,7 +392,7 @@
 
             
              </div>
-             <div class="col-md-3 mb-2 kanban-column" id="qualified-column" original-column-id="qualified"  style="border-right: 2px solid blue;background-color: #C689C6;border-radius: 30px;padding: 10px;">
+             <div class="col-md-3 mb-2 kanban-column" id="qualified-column" original-column-id="qualified"  style="border-right: 2px solid blue;background-color: #7c4962;border-radius: 30px;padding: 10px;">
                 <div class="row">
                   <div class="col-md-3"> <h4>Qualified</h4></div>
                   <div class="col-md-6"></div>
@@ -439,7 +440,7 @@
                 </div>
                 
  </div>
- <div class="col-md-3 mb-2 kanban-column" id="proposition-column" original-column-id="preposition"  style="border-right: 2px solid blue;background-color: #937DC2;border-radius: 30px;padding: 10px;">
+ <div class="col-md-3 mb-2 kanban-column" id="proposition-column" original-column-id="preposition"  style="border-right: 2px solid blue;background-color: #b14e7f;border-radius: 30px;padding: 10px;">
     <div class="row">
       <div class="col-md-3"> <h4>Proposition</h4></div>
       <div class="col-md-6"></div>
@@ -492,7 +493,7 @@
         
         
 </div>
-<div class="col-md-3 mb-2 kanban-column" id="won-column" original-column-id="won"  style="border-right: 2px solid blue;background-color: #C689C6;border-radius: 30px;padding: 10px;">
+<div class="col-md-3 mb-2 kanban-column" id="won-column" original-column-id="won"  style="border-right: 2px solid blue;background-color: #937DC2;border-radius: 30px;padding: 10px;">
     <div class="row">
       <div class="col-md-3"> <h4>Won</h4></div>
       <div class="col-md-6"></div>
@@ -583,7 +584,7 @@
                   </div>
 
 
-                  <div class="container mt-5 mb-3" style="background-color: #DCF2F1;border-radius: 20px;">
+                  <div class="container mt-5 mb-3" style=" background-color: #6895D2;border-radius: 20px;">
                     <h4 style="font-family: Verdana, Geneva, Tahoma, sans-serif;">Our Fetures:</h4>
                     <div class="row justify-content-center">
                       <div class="col-md-5" style="border-radius: 20px;background-color: #E9F6FF;margin: 15px;">
@@ -713,9 +714,49 @@
       card.parentNode.removeChild(card);
     
       hidePopup(); 
-      alert('Archive Item Successfully!!');
+      
   });
   </script>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+
+  <script>
+      $(document).ready(function() {
+         
+          function getQueryParam(name) {
+              const urlParams = new URLSearchParams(window.location.search);
+              return urlParams.get(name);
+          }
+  
+         
+          function updateCardDisplay() {
+              var archivedCards = JSON.parse(localStorage.getItem("archivedCards")) || [];
+              var allCards = document.querySelectorAll('.card-t');
+  
+              allCards.forEach(function(card) {
+                  var cardId = card.id;
+  
+                  
+                  if (!archivedCards.includes(cardId)) {
+                      card.style.display = 'block';  
+                  } else {
+                      card.style.display = 'none';   
+                  }
+              });
+          }
+  
+         
+          updateCardDisplay();
+  
+          
+          const restoredCard = getQueryParam('restoredCard');
+          if (restoredCard) {
+              
+              console.log('Restored card:', restoredCard);
+              
+          }
+      });
+  </script>
+ 
 </body>
 
 

@@ -131,6 +131,11 @@ td,th{
                             <i class="fas fa-envelope"></i> Messages
                         </a>
                     </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="{% url '' %}">
+                            <i class="fa fa-sign-out" aria-hidden="true"></i> Logout
+                        </a>
+                    </li>
                 </ul>
             </nav>
 
@@ -138,64 +143,81 @@ td,th{
                 <!-- Archived cards will be dynamically added here -->
             </div>
         
-            <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
             <script>
-                $(document).ready(function() {
-                    
-                    var archivedCards = JSON.parse(localStorage.getItem("archivedCards")) || [];
-            
-                   
-                    var archivedCardsHTML = "";
-                    for (var i = 0; i < archivedCards.length; i++) {
-                        var cardId = archivedCards[i];
-                        var cardBody = localStorage.getItem(cardId);
-                        var originalColumnId = localStorage.getItem(cardId + "_column"); 
-                        archivedCardsHTML += `
-                            <div class="archived-card" id="archived-${cardId}">
-                                <div class="card-body">${cardBody}</div>
-                                <button class="undo-btn" data-card-id="${cardId}" data-original-column-id="${originalColumnId}">Undo</button>
-                            </div>
-                        `;
-                    }
-            
-                    // Append archived cards HTML to the container
-                    $("#archived-cards-container").html(archivedCardsHTML);
-            
-                   
-                    $(".undo-btn").click(function() {
-                        var cardId = $(this).data("card-id");
-                        var originalColumnId = $(this).data("original-column-id"); // Retrieve the original column ID
-            
-                        
-                        restoreCard(cardId, originalColumnId);
-            
-                        
-                        var index = archivedCards.indexOf(cardId);
-                        if (index !== -1) {
-                            archivedCards.splice(index, 1);
-                            localStorage.setItem("archivedCards", JSON.stringify(archivedCards));
-                        }
-            
-                        
-                        $("#archived-" + cardId).remove();
-                        
-            
-                       
-                        if ($("#archived-cards-container").children().length === 0) {
-                            $("#archivedCardsSection").hide();
-                            alert('Item Unarchived successfully!!')
-                        }
-                    });
-            
-                    
-                    function restoreCard(cardId, originalColumnId) {
-                        var cardBody = localStorage.getItem(cardId);
-            
-                       
-                        $("#" + originalColumnId).append(`<div class="card-t" draggable="true" id="${cardId}" ondragstart="drag(event)" style="border-radius: 20px;background-color: rgba(104, 149, 210, 0.1);">${cardBody}</div>`);
-                    }
-                });
-            </script>
+               function redirectToLandingPage(restoredCard) {
+    const url = '/?restoredCard=' + encodeURIComponent(restoredCard);
+    window.location.href = url;
+}
+
+$(document).ready(function() {
+    var archivedCards = JSON.parse(localStorage.getItem("archivedCards")) || [];
+
+    // Display archived cards
+    var archivedCardsHTML = "";
+    for (var i = 0; i < archivedCards.length; i++) {
+        var cardId = archivedCards[i];
+        var cardBody = localStorage.getItem(cardId);
+        var originalColumnId = localStorage.getItem(cardId + "_column");
+        archivedCardsHTML += `
+            <div class="archived-card" id="archived-${cardId}">
+                <div class="card-body">${cardBody}</div>
+                <button class="undo-btn" data-card-id="${cardId}" data-original-column-id="${originalColumnId}">Undo</button>
+            </div>
+        `;
+    }
+    $("#archived-cards-container").html(archivedCardsHTML);
+
+    // Event listener for undo button click
+    $(".undo-btn").click(function() {
+        var cardId = $(this).data("card-id");
+        var originalColumnId = $(this).data("original-column-id");
+
+        // Restore the card to its original column
+        restoreCard(cardId, originalColumnId);
+
+        // Remove the card from the archived list
+        var index = archivedCards.indexOf(cardId);
+        if (index !== -1) {
+            archivedCards.splice(index, 1);
+            localStorage.setItem("archivedCards", JSON.stringify(archivedCards));
+        }
+
+        // Remove the card from the UI
+        $("#archived-" + cardId).remove();
+
+        // Hide the archived cards section if no more archived cards
+        if ($("#archived-cards-container").children().length === 0) {
+            $("#archivedCardsSection").hide();
+            alert('Item Unarchived successfully!!')
+        }
+
+        // Redirect back to the landing page with information about the unarchived card
+        redirectToLandingPage(cardId);
+    });
+
+    // Function to restore a card
+    function restoreCard(cardId, originalColumnId) {
+        const archivedCards = JSON.parse(localStorage.getItem('archivedCards')) || [];
+        console.log('Archived Cards before restoration:', archivedCards);
+
+        // Find the index of the card with the given cardId
+        const index = archivedCards.findIndex(card => card.id === cardId);
+
+        // If the card is found, remove it from archivedCards
+        if (index !== -1) {
+            const restoredCard = archivedCards.splice(index, 1)[0];
+            localStorage.setItem('archivedCards', JSON.stringify(archivedCards));
+
+            // Add the restored card back to its original column
+            const originalColumnCards = JSON.parse(localStorage.getItem(originalColumnId)) || [];
+            originalColumnCards.push(restoredCard);
+            localStorage.setItem(originalColumnId, JSON.stringify(originalColumnCards));
+        } else {
+            console.log('Card with ID', cardId, 'not found in archived cards.');
+        }
+    }
+});
+                </script>
             
 </body>
 </html>
