@@ -14,9 +14,10 @@
     
     <style>
         body{
-           background-color: #838ba4;
+           
             background-repeat: no-repeat;
             background-size: cover;
+            
         }
         .search-container {
             position: relative;
@@ -145,7 +146,54 @@
     display: inline-block;
     animation: rotate 2s linear infinite; 
   }
+  .card-container {
+    display: flex;
+    position: relative;
+  }
 
+  .card {
+    margin-right: 20px; /* Adjust spacing between cards */
+    transform: scale(0);
+    animation: scaleIn 2s ease infinite alternate;
+  }
+
+  @keyframes scaleIn {
+    0% {
+      transform: scale(0);
+    }
+    100% {
+      transform: scale(1);
+    }
+  }
+  .row {
+    margin: 0 -15px;
+  }
+
+  .col-md-6 {
+    padding: 0 15px;
+  }
+
+  .button {
+    padding: 10px 20px;
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    display: inline-flex;
+    align-items: center;
+  }
+
+  .button:hover {
+    background-color: #0056b3;
+  }
+
+  .arrow {
+    margin-left: 5px;
+    width: 20px;
+    height: 20px;
+    fill: #fff;
+  }
        
     </style>
 </head>
@@ -153,7 +201,12 @@
     <div class="container-fluid">
 
 
-        <div class="container mt-1" style="background-color: #182978; border-radius: 20px; padding: 8px;">
+
+
+
+
+
+        <div class="container mt-1" style="background-color: #9195F6; border-radius: 20px; padding: 8px;">
             <nav class="navbar navbar-expand-lg navbar-light ">
                 <a class="navbar-brand" href="#" style="color: white;">BITRIX24</a>
                 <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
@@ -201,19 +254,29 @@
               </nav>
         </div>
 
-        <div class="container mt-4">
-            <div class="row justify-content-center">
-                <div class="col-md-8 text-center">
-                    <p  style="font-style: italic;font-size: 30px;">Your success, our priority. Empowering workers, enriching lives.</p>
-                    <p style="font-style: italic;font-size: 20px;"><span style="font-weight: bold">CRM Website</span> is the true customer-centric tool for your sales needs. Track leads, get accurate forecasts, and focus on what matters: closing opportunities.</p>
-                    <button class="btn btn-lg btn-success">Start Now</button>
-                </div>
-            </div>
-        </div>
 
+        <div class="container mt-5" style="margin: 26x;">
+          <div class="row">
+            <div class="col-md-6">
+              <img class="img-fluid" src="https://img.freepik.com/free-vector/isometric-b2b-illustration_52683-83010.jpg?size=626&ext=jpg&ga=GA1.1.1198879816.1699613378&semt=sph" alt="Image" style="border-radius: 40px;width: 500px;height: 400px;">
+            </div>
+            <div class="col-md-6 justify-content-center">
+              <p style="font-size: 23px;font-weight: bold;font-style: italic;">Unlock the power of PickCare </p>
+              <p style="font-size: 23px;font-style: italic;">Revolutionize your journy. provide instant acces to your site </p>
+              <button class="button" style="font-style: italic;">Get Started <svg class="arrow" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M0 0h24v24H0z" fill="none"/><path d="M9.29 6.71a.996.996 0 0 0 0 1.41L13.17 12l-3.88 3.88a.996.996 0 1 0 1.41 1.41l4.59-4.59a.996.996 0 0 0 0-1.41L10.7 6.7a.996.996 0 0 0-1.41 0z"/></svg></button>
+            </div>
+          </div>
+        </div>
+       
+
+
+
+
+
+
+       
         
-        
-        <div class="container mt-4" style="border-radius: 10px;">
+        <div class="container cot mt-4" style="border-radius: 10px;">
             <div class="row">
               <div class="col-md-3 mt-4">
                 <!-- Card 1 -->
@@ -324,8 +387,17 @@
           </div>
 
 
-         
+          <div class="container  mt-4">
+            <div class="row justify-content-center">
+                <div class="col-md-8 text-center">
+                    <p  style="font-style: italic;font-size: 30px;">Your success, our priority. Empowering workers, enriching lives.</p>
+                    <p style="font-style: italic;font-size: 20px;"><span style="font-weight: bold">CRM Website</span> is the true customer-centric tool for your sales needs. Track leads, get accurate forecasts, and focus on what matters: closing opportunities.</p>
+                    <button class="btn btn-lg btn-primary " style="color: white;border-radius: 30px;">Learn More</button>
+                </div>
+            </div>
+        </div>
 
+        
 
           
 
@@ -338,16 +410,16 @@
 
                 
 
-                <div class="col-md-3 mb-2 kanban-column" id="new-column" original-column-id="new"  style="border-right: 2px solid blue;background-color: #ab56a0;border-radius: 30px;padding: 10px;">
+                <div class="col-md-3 mb-2 kanban-column" id="new-column" original-column-id="new"  style="border-right: 2px solid blue;background-color: #9195F6;border-radius: 30px;padding: 10px;color: white;">
                   <div class="row">
                     <div class="col-md-3"> <h4>New</h4></div>
                     <div class="col-md-6"></div>
                     <div class="col-md-3"><a href="" style="text-decoration: none;color: black;font-size: 18px;" >+</a></div>
                   </div>
-                  <div class="card-t data-mdb-drag-handle" draggable="true" id="cardd1" data-original-column-id="new-column" ondragstart="drag(event)" style="border-radius: 20px;background-color: #C8B6E2;margin: 15px;">
+                  <div class="card-t data-mdb-drag-handle" draggable="true" id="cardd1" data-original-column-id="new-column" ondragstart="drag(event)" style="border-radius: 20px;margin: 15px;border: 1px solid white;">
                     <div class="card-body">
                       <h6 class="card-title">Office Design</h6>
-                      <h6 class="card-subtitle mb-2 text-muted " >$ 34.990</h6>
+                      <h6 class="card-subtitle mb-2 " >$ 34.990</h6>
                       <p class="card-text">content of the card.</p>
                       <!-- Rating stars -->
                       <div class="rating mb-3">
@@ -363,10 +435,10 @@
                     </div>
                   </div>
 
-                  <div class="card-t" draggable="true" id="cardd2"  ondragstart="drag(event)" style="border-radius: 20px;background-color: #C8B6E2;margin: 15px;">
+                  <div class="card-t" draggable="true" id="cardd2"  ondragstart="drag(event)" style="border-radius: 20px;border: 1px solid white;margin: 15px;">
                     <div class="card-body">
                       <h6 class="card-title">Intrest in Your Product</h6>
-                      <h6 class="card-subtitle mb-2 text-muted">$ 654.09</h6>
+                      <h6 class="card-subtitle mb-2 ">$ 654.09</h6>
                       <p class="card-text">content of the card.</p>
                       <!-- Rating stars -->
                       <div class="rating mb-3">
@@ -392,16 +464,16 @@
 
             
              </div>
-             <div class="col-md-3 mb-2 kanban-column" id="qualified-column" original-column-id="qualified"  style="border-right: 2px solid blue;background-color: #7c4962;border-radius: 30px;padding: 10px;">
+             <div class="col-md-3 mb-2 kanban-column" id="qualified-column" original-column-id="qualified"  style="border-right: 2px solid blue;background-color: #9195F6;border-radius: 30px;padding: 10px;color: white;">
                 <div class="row">
                   <div class="col-md-3"> <h4>Qualified</h4></div>
                   <div class="col-md-6"></div>
                   <div class="col-md-3"><a href="" style="text-decoration: none;color: black;font-size: 18px;" >+</a></div>
                 </div>
-                <div class="card-t" draggable="true" id="cardd3"  ondragstart="drag(event)" style="border-radius: 20px;background-color: #C8B6E2;margin: 15px;">
+                <div class="card-t" draggable="true" id="cardd3"  ondragstart="drag(event)" style="border-radius: 20px;border: 1px solid white;margin: 15px;">
                   <div class="card-body">
                     <h6 class="card-title">need 20 desk</h6>
-                    <h6 class="card-subtitle mb-2 text-muted">$ 545.98</h6>
+                    <h6 class="card-subtitle mb-2 ">$ 545.98</h6>
                     <p class="card-text">content of the card.</p>
                     <!-- Rating stars -->
                     <div class="rating mb-3">
@@ -417,11 +489,11 @@
                   </div>
                 </div>
 
-                <div class="card-t" draggable="true"  id="cardd4" ondragstart="drag(event)" style="border-radius: 20px;background-color: #C8B6E2;margin: 15px;">
+                <div class="card-t" draggable="true"  id="cardd4" ondragstart="drag(event)" style="border-radius: 20px;border: 1px solid white;margin: 15px;">
                   <div class="card-body">
                     <h6 class="card-title">pc desk</h6>
-                    <h6 class="card-subtitle mb-2 text-muted">$ 4589.0</h6>
-                    <p class="card-text">content of the card.</p>
+                    <h6 class="card-subtitle mb-2 ">$ 4589.0</h6>
+                    <p class="card-text">content of the cardborder: 1px solid white.</p>
                     <!-- Rating stars -->
                     <div class="rating mb-3">
                       <span><i class="fas fa-star"></i></span>
@@ -440,16 +512,16 @@
                 </div>
                 
  </div>
- <div class="col-md-3 mb-2 kanban-column" id="proposition-column" original-column-id="preposition"  style="border-right: 2px solid blue;background-color: #b14e7f;border-radius: 30px;padding: 10px;">
+ <div class="col-md-3 mb-2 kanban-column" id="proposition-column" original-column-id="preposition"  style="border-right: 2px solid blue;background-color: #9195F6;border-radius: 30px;padding: 10px;color: white;">
     <div class="row">
       <div class="col-md-3"> <h4>Proposition</h4></div>
       <div class="col-md-6"></div>
       <div class="col-md-3"><a href="" style="text-decoration: none;color: black;font-size: 18px;" >+</a></div>
     </div>
-    <div class="card-t" draggable="true" id="cardd5"  ondragstart="drag(event)" style="border-radius: 20px;background-color: #C8B6E2;margin: 15px;">
+    <div class="card-t" draggable="true" id="cardd5"  ondragstart="drag(event)" style="border-radius: 20px;border: 1px solid white;margin: 15px;">
       <div class="card-body">
         <h6 class="card-title">open space design</h6>
-        <h6 class="card-subtitle mb-2 text-muted">$ 654.00</h6>
+        <h6 class="card-subtitle mb-2 ">$ 654.00</h6>
         <p class="card-text">content of the card.</p>
         <!-- Rating stars -->
         <div class="rating mb-3">
@@ -465,10 +537,10 @@
       </div>
     </div>
 
-    <div class="card-t" draggable="true" id="cardd6"  ondragstart="drag(event)" style="border-radius: 20px;background-color: #C8B6E2;margin: 15px;">
+    <div class="card-t" draggable="true" id="cardd6"  ondragstart="drag(event)" style="border-radius: 20px;border: 1px solid white;margin: 15px;">
       <div class="card-body">
         <h6 class="card-title">office design</h6>
-        <h6 class="card-subtitle mb-2 text-muted">$ 321.00</h6>
+        <h6 class="card-subtitle mb-2 ">$ 321.00</h6>
         <p class="card-text">content of the card.</p>
         <!-- Rating stars -->
         <div class="rating mb-3">
@@ -493,16 +565,16 @@
         
         
 </div>
-<div class="col-md-3 mb-2 kanban-column" id="won-column" original-column-id="won"  style="border-right: 2px solid blue;background-color: #937DC2;border-radius: 30px;padding: 10px;">
+<div class="col-md-3 mb-2 kanban-column" id="won-column" original-column-id="won"  style="border-right: 2px solid blue;background-color: #9195F6;border-radius: 30px;padding: 10px;color: white;">
     <div class="row">
       <div class="col-md-3"> <h4>Won</h4></div>
       <div class="col-md-6"></div>
       <div class="col-md-3"><a href="" style="text-decoration: none;color: black;font-size: 18px;" >+</a></div>
     </div>
-    <div class="card-t" draggable="true" id="cardd7"  ondragstart="drag(event)" style="border-radius: 20px;background-color: #C8B6E2;margin: 15px;">
+    <div class="card-t" draggable="true" id="cardd7"  ondragstart="drag(event)" style="border-radius: 20px;border: 1px solid white;margin: 15px;">
       <div class="card-body">
         <h6 class="card-title">access online</h6>
-        <h6 class="card-subtitle mb-2 text-muted">$ 56.00</h6>
+        <h6 class="card-subtitle mb-2 ">$ 56.00</h6>
         <p class="card-text">content of the card.</p>
         <!-- Rating stars -->
         <div class="rating mb-3">
@@ -518,10 +590,10 @@
       </div>
     </div>
 
-    <div class="card-t" draggable="true" id="cardd8"  ondragstart="drag(event)" style="border-radius: 20px;background-color: #C8B6E2;margin: 15px;">
+    <div class="card-t" draggable="true" id="cardd8"  ondragstart="drag(event)" style="border-radius: 20px;border: 1px solid white;margin: 15px;">
       <div class="card-body">
         <h6 class="card-title">customizable desk</h6>
-        <h6 class="card-subtitle mb-2 text-muted">$ 459.00</h6>
+        <h6 class="card-subtitle mb-2 ">$ 459.00</h6>
         <p class="card-text">content of the card.</p>
         <!-- Rating stars -->
         <div class="rating mb-3">
@@ -557,7 +629,7 @@
                
 
 
-                <div class="container mt-5 mb-3" style="background-color: #6895D2;border-radius: 20px;padding: 30px;">
+                <div class="container mt-5 mb-3" style="border-radius: 20px;padding: 30px;">
                     <h2 class="mb-5" style="text-align: center;">Integrate with Us</h2>
                     <div class="row">
                       <div class="col-md-3 text-center">
@@ -584,40 +656,7 @@
                   </div>
 
 
-                  <div class="container mt-5 mb-3" style=" background-color: #6895D2;border-radius: 20px;">
-                    <h4 style="font-family: Verdana, Geneva, Tahoma, sans-serif;">Our Fetures:</h4>
-                    <div class="row justify-content-center">
-                      <div class="col-md-5" style="border-radius: 20px;background-color: #E9F6FF;margin: 15px;">
-                        <h6>Title 1</h6>
-                        <p style="font-size: 18px;">Automate lead creation, team assignment, scheduled activities, and focus on what really matters.</p>
-                      </div>
-                      <div class="col-md-5" style="border-radius: 20px;background-color: #E9F6FF;margin: 15px;">
-                        <h6>Title 1</h6>
-                        <p style="font-size: 18px;">Automate lead creation, team assignment, scheduled activities, and focus on what really matters.</p>
-                      </div>
-                    </div>
-                    <div class="row justify-content-center">
-                        <div class="col-md-5" style="border-radius: 20px;background-color: #E9F6FF;margin: 15px;">
-                            <h6>Title 1</h6>
-                            <p style="font-size: 18px;">Automate lead creation, team assignment, scheduled activities, and focus on what really matters.</p>
-                          </div>
-                          <div class="col-md-5" style="border-radius: 20px;background-color: #E9F6FF;margin: 15px;">
-                            <h6>Title 1</h6>
-                            <p style="font-size: 18px;">Automate lead creation, team assignment, scheduled activities, and focus on what really matters.</p>
-                          </div>
-                    </div>
-                  </div>
-            </div>
-
-
-            <div class="archive-container">
-              <!-- Archived Items will be dynamically added here -->
-            </div>
-       
-
-
-        
-        
+                 
         <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js"></script>
         

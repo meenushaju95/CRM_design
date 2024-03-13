@@ -13,6 +13,7 @@
     <script src="https://kit.fontawesome.com/274ee977b7.js" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
     <style>
+        
         .sidebar {
             display: none;
            
@@ -51,6 +52,16 @@ canvas {
 td,th{
     font-family: cursive;
 }
+.card{
+    border-radius: 30px;
+    background-color: #E1E2E2;
+    text-align: center;
+    
+}
+
+.rating i {
+            color: yellow;
+        }
     </style>
 </head>
 <body>
@@ -106,6 +117,11 @@ td,th{
                             <i class="fas fa-envelope"></i> Messages
                         </a>
                     </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="{% url '' %}">
+                            <i class="fa fa-sign-out" aria-hidden="true"></i> Logout
+                        </a>
+                    </li>
                 </ul>
             </nav>
 
@@ -128,61 +144,236 @@ td,th{
                         </div>
                     </div>
                 </div>
+
+
+                
+                   
+                
+
+               <div class="container-fluid">
+
+                    <div class="row m-5">
+                        <div class="col-md-3">
+
+                            <div class="card" style="background-color: #E178C5;font-family: Arial, Helvetica, sans-serif;">
+                                <div class="card-body d-flex justify-content-between">
+                                    <div>
+                                        <h5 class="card-title">New Task</h5>
+                                        <h4 class="card-subtitle mb-2 ">5 Tasks</h4>
+                                    </div>
+                                    <div>
+                                        <!-- Add your icon here -->
+                                        <i class="fa fa-external-link" aria-hidden="true"></i>
+                                    </div>
+                                </div>
+                            </div>
+
+                        </div>
+                        <div class="col-md-3">
+                            <div class="card" style="background-color: #5F5D9C;font-family: Arial, Helvetica, sans-serif;">
+                                <div class="card-body d-flex justify-content-between">
+                                    <div>
+                                        <h5 class="card-title">Pending Task</h5>
+                                        <h4 class="card-subtitle mb-2 ">7 Tasks</h4>
+                                    </div>
+                                    <div>
+                                        <!-- Add your icon here -->
+                                        <i class="fa fa-thumbs-down" aria-hidden="true"></i>
+                                    </div>
+                                </div>
+                            </div>
+
+                        </div>
+                        <div class="col-md-3">
+                            <div class="card" style="background-color: #6196A6;font-family: Arial, Helvetica, sans-serif;">
+                                <div class="card-body d-flex justify-content-between">
+                                    <div>
+                                        <h5 class="card-title">Cancel Task</h5>
+                                        <h4 class="card-subtitle mb-2 ">8 Tasks</h4>
+                                    </div>
+                                    <div>
+                                        <!-- Add your icon here -->
+                                        <i class="fa fa-ban" aria-hidden="true"></i>
+                                    </div>
+                                </div>
+                            </div>
+
+                        </div>
+                        <div class="col-md-3">
+                            <div class="card" style="background-color: #E78895;font-family: Arial, Helvetica, sans-serif;">
+                                <div class="card-body d-flex justify-content-between">
+                                    <div>
+                                        <h5 class="card-title">Completed Task</h5>
+                                        <h4 class="card-subtitle mb-2 ">10 Tasks</h4>
+                                    </div>
+                                    <div>
+                                        <!-- Add your icon here -->
+                                        <i class="fa fa-cloud-upload" aria-hidden="true"></i>
+                                    </div>
+                                </div>
+                            </div>
+
+                    </div>
+                </div>
+                
+
+
+
+
+
+
+
                 <!-- Graphs -->
                 <div class="container-fluid">
                     <div class="row">
                         <!-- Container for Sales Report Pie Chart -->
-                        <div  class="col-md-6 p-5" style="border-radius: 16px;">
+                        <div class="col-md-6 p-3" style="border-radius: 36px;">
                             <div class="p-3 rounded bg-light">
                                 <!-- Include your pie chart here -->
-                                <canvas id="pieChart" width="100%" height="100%"></canvas>
+                                <canvas id="pieChart" width="400" height="400"></canvas>
                             </div>
                         </div>
                         <!-- Container for Bar Chart -->
-                        <div class="col-md-6 p-5" style="border-radius: 16px;">
+                        <div class="col-md-6 p-3" style="border-radius: 16px;">
                             <div class="p-3 rounded bg-light">
                                 <!-- Include your bar chart here -->
-                                <canvas id="barChart" width="100%" height="100%"></canvas>
+                                <canvas id="barChart" width="400" height="400"></canvas>
                             </div>
                         </div>
                     </div>
                 </div>
 
+
                 <div class="container-fluid">
                     
-                        <!-- Sales Report -->
-                        
-                            <div class="p-3 rounded bg-light">
-                                <h4 class="mb-4" style="font-family: cursive;">Today Sales</h4>
-                                <div class="table-responsive">
-                                    <table class="table">
-                                        <thead>
-                                            <tr>
-                                                <th scope="col">Product Name</th>
-                                                <th scope="col">Date</th>
-                                                <th scope="col">Price</th>
-                                                <th scope="col">Status</th>
-                                            </tr>
-                                        </thead>
-                                        <tbody>
-                                            <!-- Example Row 1 -->
-                                            <tr>
-                                                <td>Product A</td>
-                                                <td>2024-03-09</td>
-                                                <td>$50.00</td>
-                                                <td>Completed</td>
-                                            </tr>
-                                            <!-- Example Row 2 -->
-                                            <tr>
-                                                <td>Product B</td>
-                                                <td>2024-03-09</td>
-                                                <td>$30.00</td>
-                                                <td>Pending</td>
-                                            </tr>
-                                        </tbody>
-                                    </table>
-                                
-                           
+                    <!-- Sales Report -->
+                    
+                        <div class="p-3 rounded bg-light">
+                            <h4 class="mb-4" style="font-family: cursive;">Today Sales</h4>
+                            <div class="table-responsive">
+                                <table class="table">
+                                    <thead style="background-color: #5F5D9C;">
+                                        <tr>
+                                            <th scope="col">Product Name</th>
+                                            <th scope="col">Date</th>
+                                            <th scope="col">Price</th>
+                                            <th scope="col">Status</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <!-- Example Row 1 -->
+                                        <tr>
+                                            <td>Product A</td>
+                                            <td>2024-03-09</td>
+                                            <td>$50.00</td>
+                                            <td>Completed</td>
+                                        </tr>
+                                        <!-- Example Row 2 -->
+                                        <tr>
+                                            <td>Product B</td>
+                                            <td>2024-03-09</td>
+                                            <td>$30.00</td>
+                                            <td>Pending</td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            
+                       
+                    </div>
+                </div>
+            </div>
+
+
+<div class="container-fluid">
+                <div class="row m-5">
+                    <div class="col-md-3">
+                        <div class="card">
+                            <div class="card-body">
+                                <h4 class="text-muted">Total sales</h4>
+                                <h2>$143.6 k</h2>
+                                <p style="color: green;"><i class="fa fa-hand-peace-o" aria-hidden="true"></i>25.2%</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-3">
+                        <div class="card">
+                            <div class="card-body">
+                                <h4 class="text-muted">Win Rate</h4>
+                                <h2>14.7%</h2>
+                                <p style="color: green;"><i class="fa fa-hand-peace-o" aria-hidden="true"></i>14.2%</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-3">
+                        <div class="card">
+                            <div class="card-body">
+                                <h4 class="text-muted">Close Rate</h4>
+                                <h2>12,7 5</h2>
+                                <p style="color: green;"><i class="fa fa-hand-peace-o" aria-hidden="true"></i>13.2%</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-3">
+                        <div class="card">
+                            <div class="card-body">
+                                <h4 class="text-muted">Average close</h4>
+                                <h2>34,6%</h2>
+                                <p style="color: red;"><i class="fa fa-hand-peace-o" aria-hidden="true"></i>35.2%</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+           
+
+
+
+                
+
+
+                <div class="container-fluid" style="padding: 10px;">
+                    <div class="row justify-content-center">
+                       
+                        <div class="col-md-6">
+                            <img class="img-fluid" src="https://www.quoteinspector.com/media/investing/pie-chart.jpg" alt="CRM Dashboard Image" style="border-radius: 50%;">
+                        </div>
+                      
+                        <div class="col-md-6">
+                            <table class="table" border="1">
+                                <thead style="background-color: #5F5D9C;">
+                                    <tr>
+                                        <th scope="col">First Name</th>
+                                        <th scope="col">Plan</th>
+                                        <th scope="col">Rating</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td>John</td>
+                                        <td>Basic</td>
+                                        <td class="rating">
+                                            <i class="fas fa-star"></i>
+                                            <i class="fas fa-star"></i>
+                                            <i class="fas fa-star"></i>
+                                            <i class="fas fa-star"></i>
+                                            <i class="fas fa-star-half-alt"></i>
+                                        </td>
+                                    </tr>
+
+                                    <tr>
+                                        <td>John</td>
+                                        <td>Business</td>
+                                        <td class="rating">
+                                            <i class="fas fa-star"></i>
+                                            <i class="fas fa-star"></i>
+                                            <i class="fas fa-star"></i>
+                                            <i class="fas fa-star"></i>
+                                            <i class="fas fa-star-half-alt"></i>
+                                        </td>
+                                    </tr>
+                                    <!-- Add more rows as needed -->
+                                </tbody>
+                            </table>
                         </div>
                     </div>
                 </div>

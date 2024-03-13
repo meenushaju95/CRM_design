@@ -52,9 +52,9 @@ td,th{
     font-family: cursive;
 }
 .undo-btn {
-        background-color: rgb(174, 125, 170); /* Green */
+        background-color: #B7C9F2; /* Green */
         border: none;
-        color: white;
+        color: black;
         padding: 10px 20px;
         text-align: center;
         text-decoration: none;
@@ -73,7 +73,23 @@ td,th{
     overflow: hidden; 
    margin: 8px;
    padding: 10px;
+   background-color: #E1E2E2;
+   height: 50vh;
+  
+
 }
+#archived-cards-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: start;
+    overflow: auto; 
+}
+
+
+#archived-cards-container {
+    min-height: calc(100vh - 50px); 
+}
+
     
    
     </style>
@@ -138,10 +154,16 @@ td,th{
                     </li>
                 </ul>
             </nav>
-
-            <div id="archived-cards-container" >
-                <!-- Archived cards will be dynamically added here -->
+            
+                 
+            <div class="col-md-10">
+                <h2 style="text-align: center;font-style: italic;">Archived Cards</h2>
+                <div id="archived-cards-container" class="d-flex flex-wrap justify-content-start" style="height: 400px; overflow-x: auto;;">
+                    <!-- Archived cards will be dynamically added here -->
+                </div>
             </div>
+        </div>
+    </div>
         
             <script>
                function redirectToLandingPage(restoredCard) {
@@ -188,7 +210,7 @@ $(document).ready(function() {
         // Hide the archived cards section if no more archived cards
         if ($("#archived-cards-container").children().length === 0) {
             $("#archivedCardsSection").hide();
-            alert('Item Unarchived successfully!!')
+           
         }
 
         // Redirect back to the landing page with information about the unarchived card
@@ -217,6 +239,13 @@ $(document).ready(function() {
         }
     }
 });
+                </script>
+                 <script>
+                    $(document).ready(function () {
+                        $("#toggle-btn").click(function () {
+                            $(".sidebar").toggleClass("active");
+                        });
+                    });
                 </script>
             
 </body>
