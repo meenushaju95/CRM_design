@@ -14,9 +14,10 @@
     
     <style>
         body{
-           
+            background-color: #B7C9F2;
             background-repeat: no-repeat;
             background-size: cover;
+            color: white;
             
         }
         .search-container {
@@ -65,11 +66,16 @@
       transform: translateY(-5px); 
       box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2); 
     }
+
+    .navbar-toggler-icon {
+            background-color: white; /* Set the background color to white */
+            border-radius: 10px;
+        }
    
 
     
 .footer {
-    background-color: #343a40;
+  background-color: rgba(0, 0, 0, 0.6);
     color: #fff;
     padding: 20px;
     display: flex;
@@ -102,11 +108,11 @@
     margin-right: 5px;
 }
 
-/* Media queries for responsiveness */
+
 @media (max-width: 768px) {
     .footer {
-        flex-direction: column; /* Stack items vertically */
-        align-items: center; /* Center items horizontally */
+        flex-direction: column; 
+        align-items: center; 
     }
 
     .footer-column {
@@ -139,10 +145,10 @@
     }
   }
 
-  /* Apply the animation to the icon */
+  
   #archiveButton::after {
     content: "\f0e2"; 
-    font-family: FontAwesome; /* Assuming you're using FontAwesome */
+    font-family: FontAwesome; 
     display: inline-block;
     animation: rotate 2s linear infinite; 
   }
@@ -152,7 +158,7 @@
   }
 
   .card {
-    margin-right: 20px; /* Adjust spacing between cards */
+    margin-right: 20px; 
     transform: scale(0);
     animation: scaleIn 2s ease infinite alternate;
   }
@@ -194,7 +200,17 @@
     height: 20px;
     fill: #fff;
   }
-       
+  body::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 400px; 
+            background-color: #535C91; 
+            clip-path: polygon(0% 0%, 100% 0%, 100% 70%, 0% 100%); 
+        }
+        
     </style>
 </head>
 <body>
@@ -206,7 +222,7 @@
 
 
 
-        <div class="container mt-1" style="background-color: #9195F6; border-radius: 20px; padding: 8px;">
+        <div class="container mt-1" style="background-color: rgba(0, 0, 0, 0.1);border: 2px solid white; border-radius: 20px; padding: 8px;">
             <nav class="navbar navbar-expand-lg navbar-light ">
                 <a class="navbar-brand" href="#" style="color: white;">BITRIX24</a>
                 <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
@@ -242,10 +258,10 @@
                   </ul>
                   <div class="d-flex">
                     <div class="mr-2">
-                        <a class="nav-link btn btn-primary" href="#">Sign In</a>
+                        <a class="nav-link btn " href="#" style="background-color: #9195F6;">Sign In</a>
                     </div>
                     <div>
-                        <a class="nav-link btn btn-primary" href="#">Trial Free</a>
+                        <a class="nav-link btn " href="#" style="background-color: #9195F6;">Trial Free</a>
                     </div>
                 </div>
             </div>
@@ -257,149 +273,157 @@
 
         <div class="container mt-5" style="margin: 26x;">
           <div class="row">
-            <div class="col-md-6">
-              <img class="img-fluid" src="https://img.freepik.com/free-vector/isometric-b2b-illustration_52683-83010.jpg?size=626&ext=jpg&ga=GA1.1.1198879816.1699613378&semt=sph" alt="Image" style="border-radius: 40px;width: 500px;height: 400px;">
-            </div>
-            <div class="col-md-6 justify-content-center">
+            <div class="col-md-6 justify-content-center mt-4">
               <p style="font-size: 23px;font-weight: bold;font-style: italic;">Unlock the power of PickCare </p>
               <p style="font-size: 23px;font-style: italic;">Revolutionize your journy. provide instant acces to your site </p>
-              <button class="button" style="font-style: italic;">Get Started <svg class="arrow" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M0 0h24v24H0z" fill="none"/><path d="M9.29 6.71a.996.996 0 0 0 0 1.41L13.17 12l-3.88 3.88a.996.996 0 1 0 1.41 1.41l4.59-4.59a.996.996 0 0 0 0-1.41L10.7 6.7a.996.996 0 0 0-1.41 0z"/></svg></button>
+              <button class="button" style="font-style: italic;background-color: #9195F6;">Get Started <svg class="arrow" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M0 0h24v24H0z" fill="none"/><path d="M9.29 6.71a.996.996 0 0 0 0 1.41L13.17 12l-3.88 3.88a.996.996 0 1 0 1.41 1.41l4.59-4.59a.996.996 0 0 0 0-1.41L10.7 6.7a.996.996 0 0 0-1.41 0z"/></svg></button>
             </div>
-          </div>
-        </div>
-       
-
-
-
-
-
-
-       
-        
-        <div class="container cot mt-4" style="border-radius: 10px;">
-            <div class="row">
-              <div class="col-md-3 mt-4">
-                <!-- Card 1 -->
-                <div class="card custom-card mb-3" style="background-color: #F7418F;">
-                  <div class="card-body">
-                    <h5 class="card-title">All Customers</h5>
-                    <div class="row">
-                      <div class="col-md-6">
-                       <a href=""> <img src="https://tse4.mm.bing.net/th?id=OIP.w_4cDgLPqDIJtF7kt8vcTgHaGe&pid=Api&P=0&h=180" class="img-fluid" alt="Image 1" style="height: 100px;"></a>
-                      </div>
-                      <div class="col-md-6">
-                        <h4><span id="count1">0</span></h4>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-              <div class="col-md-3 mt-4">
-                <!-- Card 2 -->
-                <div class="card custom-card mb-3" style="background-color: #E178C5;">
-                  <div class="card-body">
-                    <h5 class="card-title">All Transactions</h5>
-                    <div class="row">
-                      <div class="col-md-6">
-                        <a href=""><img src="https://tse3.mm.bing.net/th?id=OIP.u2EA9-D-3PIO8POCkUh5egHaHa&pid=Api&P=0&h=180" class="img-fluid" alt="Image 2" style="height: 100px;"></a>
-                      </div>
-                      <div class="col-md-6">
-                        <h4><span id="count2">0</span></h4>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-              <div class="col-md-3 mt-4">
-                <!-- Card 3 -->
-                <div class="card custom-card mb-3" style="background-color: #5F5D9C;">
-                  <div class="card-body">
-                    <h5 class="card-title">Current/Ongoing</h5>
-                    <div class="row">
-                      <div class="col-md-6">
-                      <a href=""> <img src="https://tse1.mm.bing.net/th?id=OIP.aMOYQEhyHl1L1cEzIkwiXwHaHa&pid=Api&P=0&h=180" class="img-fluid" alt="Image 3" style="height: 100px;"></a>
-                      </div>
-                      <div class="col-md-6">
-                        <h4><span id="count3">0</span></h4>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-              <div class="col-md-3 mt-4">
-                <!-- Card 4 -->
-                <div class="card custom-card mb-3" style="background-color: #D37676;">
-                  <div class="card-body">
-                    <h5 class="card-title">Post Sales</h5>
-                    <div class="row">
-                      <div class="col-md-6">
-                       <a href=""><img src="https://tse3.mm.bing.net/th?id=OIP.18T3uJaCMR8TohmLa7zQXgAAAA&pid=Api&P=0&h=180" class="img-fluid" alt="Image 4" style="height: 100px;"></a> 
-                      </div>
-                      <div class="col-md-6">
-                        <h4><span id="count4">0</span></h4>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </div>
+            <div class="col-md-6">
+              <img class="img-fluid" src="https://cdn.pixabay.com/photo/2018/03/28/11/17/analytics-3268935_640.png" alt="Image" style="border-radius: 50%;width: 500px;height: 400px;">
             </div>
-
-<div class="row">
-    <div class="col-md-3">
-        <!-- Card 4 -->
-        <div class="card custom-card mb-3" style="background-color: #51829B;">
-          <div class="card-body">
-            <h5 class="card-title">Passive Transactions</h5>
-            <div class="row">
-              <div class="col-md-6">
-               <a href=""> <img src="https://tse4.mm.bing.net/th?id=OIP.hRi1rtjGO7j4ZSHjXFnsSwHaHa&pid=Api&P=0&h=180" class="img-fluid" alt="Image 4" style="height: 100px;"></a>
-              </div>
-              <div class="col-md-6">
-                <h4><span id="count4">0</span></h4>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-
-      <div class="col-md-3">
-        <!-- Card 4 -->
-        <div class="card custom-card mb-3" style="background-color: #7469B6;">
-          <div class="card-body">
-            <h5 class="card-title">Incoming Sales</h5>
-            <div class="row">
-              <div class="col-md-6">
-               <a href=""><img src="https://tse4.mm.bing.net/th?id=OIP.8EHWAfryhCrQVUhrYcStjQHaHa&pid=Api&P=0&h=180" class="img-fluid" alt="Image 4" style="height: 100px;"></a>
-              </div>
-              <div class="col-md-6">
-                <h4><span id="count4">0</span></h4>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-
-</div>
-
-
-
            
           </div>
+        </div>
+       
 
 
-          <div class="container  mt-4">
-            <div class="row justify-content-center">
-                <div class="col-md-8 text-center">
-                    <p  style="font-style: italic;font-size: 30px;">Your success, our priority. Empowering workers, enriching lives.</p>
-                    <p style="font-style: italic;font-size: 20px;"><span style="font-weight: bold">CRM Website</span> is the true customer-centric tool for your sales needs. Track leads, get accurate forecasts, and focus on what matters: closing opportunities.</p>
-                    <button class="btn btn-lg btn-primary " style="color: white;border-radius: 30px;">Learn More</button>
+
+       
+
+      
+
+        
+
+
+       
+        
+        
+          <div class="container cot mt-4" style="border-radius: 10px;">
+            <div class="row">
+                <!-- First Column: Pyramid -->
+                <div class="col-md-6">
+                    <div class="row">
+                        <div class="col-md-12 mt-4">
+                          <div class="card custom-card mb-3" style="background-color: rgba(0, 0, 0, 0.8);">
+                            <div class="card-body">
+                              <h5 class="card-title">All Customers</h5>
+                              <div class="row">
+                                <div class="col-md-6">
+                                 <a href=""> <img src="https://tse4.mm.bing.net/th?id=OIP.w_4cDgLPqDIJtF7kt8vcTgHaGe&pid=Api&P=0&h=180" class="img-fluid" alt="Image 1" style="height: 100px;"></a>
+                                </div>
+                                <div class="col-md-6">
+                                  <h4><span id="count1">0</span></h4>
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-6 mt-4">
+                          <div class="card custom-card mb-3" style=" background-color: rgba(0, 0, 0, 0.8);">
+                            <div class="card-body">
+                              <h5 class="card-title">All Transactions</h5>
+                              <div class="row">
+                                <div class="col-md-6">
+                                  <a href=""><img src="https://tse3.mm.bing.net/th?id=OIP.u2EA9-D-3PIO8POCkUh5egHaHa&pid=Api&P=0&h=180" class="img-fluid" alt="Image 2" style="height: 100px;"></a>
+                                </div>
+                                <div class="col-md-6">
+                                  <h4><span id="count2">0</span></h4>
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                        <div class="col-md-6 mt-4">
+                          <div class="card custom-card mb-3" style="background-color: rgba(0, 0, 0, 0.8);">
+                            <div class="card-body">
+                              <h5 class="card-title">Current/Ongoing</h5>
+                              <div class="row">
+                                <div class="col-md-6">
+                                <a href=""> <img src="https://tse1.mm.bing.net/th?id=OIP.aMOYQEhyHl1L1cEzIkwiXwHaHa&pid=Api&P=0&h=180" class="img-fluid" alt="Image 3" style="height: 100px;"></a>
+                                </div>
+                                <div class="col-md-6">
+                                  <h4><span id="count3">0</span></h4>
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- Second Column -->
+                <div class="col-md-6">
+                    <div class="row">
+                        <div class="col-md-6 mt-4">
+                          <div class="card custom-card mb-3" style="background-color: rgba(0, 0, 0, 0.8);">
+                            <div class="card-body">
+                              <h5 class="card-title">Passive Transactions</h5>
+                              <div class="row">
+                                <div class="col-md-6">
+                                 <a href=""> <img src="https://tse4.mm.bing.net/th?id=OIP.hRi1rtjGO7j4ZSHjXFnsSwHaHa&pid=Api&P=0&h=180" class="img-fluid" alt="Image 4" style="height: 100px;"></a>
+                                </div>
+                                <div class="col-md-6">
+                                  <h4><span id="count4">0</span></h4>
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                        <div class="col-md-6 mt-4">
+                          <div class="card custom-card mb-3" style="background-color: rgba(0, 0, 0, 0.8);">
+                            <div class="card-body">
+                              <h5 class="card-title">Incoming Sales</h5>
+                              <div class="row">
+                                <div class="col-md-6">
+                                 <a href=""><img src="https://tse4.mm.bing.net/th?id=OIP.8EHWAfryhCrQVUhrYcStjQHaHa&pid=Api&P=0&h=180" class="img-fluid" alt="Image 4" style="height: 100px;"></a>
+                                </div>
+                                <div class="col-md-6">
+                                  <h4><span id="count4">0</span></h4>
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-12 mt-4">
+                          <div class="card custom-card mb-3" style="background-color: rgba(0, 0, 0, 0.8);">
+                            <div class="card-body">
+                              <h5 class="card-title">Incoming Sales</h5>
+                              <div class="row">
+                                <div class="col-md-6">
+                                 <a href=""><img src="https://tse4.mm.bing.net/th?id=OIP.8EHWAfryhCrQVUhrYcStjQHaHa&pid=Api&P=0&h=180" class="img-fluid" alt="Image 4" style="height: 100px;"></a>
+                                </div>
+                                <div class="col-md-6">
+                                  <h4><span id="count4">0</span></h4>
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
 
-        
 
-          
+
+        <div class="container-fluid  mt-4 " style="border-radius: 10px;padding: 20px;color: black;">
+          <div class="row justify-content-center">
+              <div class="col-md-8 text-center">
+                  <p  style="font-style: italic;font-size: 30px;">Your success, our priority. Empowering workers, enriching lives.</p>
+                  <p style="font-style: italic;font-size: 20px;"><span style="font-weight: bold">CRM Website</span> is the true customer-centric tool for your sales needs. Track leads, get accurate forecasts, and focus on what matters: closing opportunities.</p>
+                  <button class="btn btn-lg  " style="color: white;border-radius: 30px;background-color: #9195F6;">Learn More</button>
+              </div>
+          </div>
+      </div>
+
+
+
+      <div class="circular-shape"></div>
+         
+         
 
           <div class="container mt-5" id="con" >
             <div id="kanban-board">
@@ -410,7 +434,7 @@
 
                 
 
-                <div class="col-md-3 mb-2 kanban-column" id="new-column" original-column-id="new"  style="border-right: 2px solid blue;background-color: #9195F6;border-radius: 30px;padding: 10px;color: white;">
+                <div class="col-md-3 mb-2 kanban-column" id="new-column" original-column-id="new"  style="border-right: 2px solid blue;background-color: #535C91;border-radius: 30px;padding: 10px;color: white;">
                   <div class="row">
                     <div class="col-md-3"> <h4>New</h4></div>
                     <div class="col-md-6"></div>
@@ -464,7 +488,7 @@
 
             
              </div>
-             <div class="col-md-3 mb-2 kanban-column" id="qualified-column" original-column-id="qualified"  style="border-right: 2px solid blue;background-color: #9195F6;border-radius: 30px;padding: 10px;color: white;">
+             <div class="col-md-3 mb-2 kanban-column" id="qualified-column" original-column-id="qualified"  style="border-right: 2px solid blue;background-color: #535C91;border-radius: 30px;padding: 10px;color: white;">
                 <div class="row">
                   <div class="col-md-3"> <h4>Qualified</h4></div>
                   <div class="col-md-6"></div>
@@ -512,7 +536,7 @@
                 </div>
                 
  </div>
- <div class="col-md-3 mb-2 kanban-column" id="proposition-column" original-column-id="preposition"  style="border-right: 2px solid blue;background-color: #9195F6;border-radius: 30px;padding: 10px;color: white;">
+ <div class="col-md-3 mb-2 kanban-column" id="proposition-column" original-column-id="preposition"  style="border-right: 2px solid blue;background-color: #535C91;border-radius: 30px;padding: 10px;color: white;">
     <div class="row">
       <div class="col-md-3"> <h4>Proposition</h4></div>
       <div class="col-md-6"></div>
@@ -565,7 +589,7 @@
         
         
 </div>
-<div class="col-md-3 mb-2 kanban-column" id="won-column" original-column-id="won"  style="border-right: 2px solid blue;background-color: #9195F6;border-radius: 30px;padding: 10px;color: white;">
+<div class="col-md-3 mb-2 kanban-column" id="won-column" original-column-id="won"  style="border-right: 2px solid blue;background-color: #535C91;border-radius: 30px;padding: 10px;color: white;">
     <div class="row">
       <div class="col-md-3"> <h4>Won</h4></div>
       <div class="col-md-6"></div>
@@ -630,7 +654,7 @@
 
 
                 <div class="container mt-5 mb-3" style="border-radius: 20px;padding: 30px;">
-                    <h2 class="mb-5" style="text-align: center;">Integrate with Us</h2>
+                    <h2 class="mb-5" style="text-align: center;color: black;">Integrate with Us</h2>
                     <div class="row">
                       <div class="col-md-3 text-center">
                         <a href="" style="text-decoration: none ;color: black;">

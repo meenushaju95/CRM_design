@@ -20,10 +20,10 @@
         .sidebar.active {
             display: block;
         }
-        /* Adjust sidebar height to fit the viewport */
+       
         .sidebar {
             min-height: 100vh;
-            overflow-y: auto; /* Enable vertical scrolling */
+            overflow-y: auto; 
         }
         .nav-item {
             border-radius: 10px;
@@ -32,9 +32,9 @@
         .nav-link {
             border-radius: 10px;
             padding: 10px;
-            color: #000; /* Change color to black */
-            font-family: cursive; /* Apply curved font */
-            background-color: #B7C9F2; /* Change background color */
+            color: #000; 
+            font-family: cursive; 
+            background-color: #B7C9F2; 
         }
         .nav-link.active {
             background-color: #007bff;
@@ -71,20 +71,20 @@ td,th{
     border: 1px solid #ccc; 
     border-radius: 10px; 
     overflow: hidden; 
-   margin: 8px;
-   padding: 10px;
-   background-color: #E1E2E2;
-   height: 50vh;
-  
-
+    margin: 10px;
+    padding: 10px;
+    background-color: #E1E2E2;
+    width: 300px;
+    height: 360px; /* Set a fixed height for each card */
 }
-#archived-cards-container {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: start;
-    overflow: auto; 
-}
-
+        #archived-cards-container {
+            display: flex;
+            padding: 8px;
+            flex-wrap: wrap;
+            justify-content: start;
+            overflow: auto; 
+            height: 100vh; 
+        }
 
 #archived-cards-container {
     min-height: calc(100vh - 50px); 
@@ -114,12 +114,12 @@ td,th{
                     <span style="font-family:cursive;font-size: 28px;">CRM</span>
                 </div>
                 
-                <!-- Search Bar -->
+                
                 <form class="mb-3">
                     <input type="text" class="form-control" placeholder="Search..." aria-label="Search" aria-describedby="button-addon2" style="border-radius: 20px;">
                 </form>
                 
-                <!-- Nav Items -->
+                
                 <ul class="nav flex-column mb-3">
                     <li class="nav-item">
                         <a class="nav-link" href="#">
@@ -174,7 +174,7 @@ td,th{
 $(document).ready(function() {
     var archivedCards = JSON.parse(localStorage.getItem("archivedCards")) || [];
 
-    // Display archived cards
+    
     var archivedCardsHTML = "";
     for (var i = 0; i < archivedCards.length; i++) {
         var cardId = archivedCards[i];
@@ -189,48 +189,48 @@ $(document).ready(function() {
     }
     $("#archived-cards-container").html(archivedCardsHTML);
 
-    // Event listener for undo button click
+    
     $(".undo-btn").click(function() {
         var cardId = $(this).data("card-id");
         var originalColumnId = $(this).data("original-column-id");
 
-        // Restore the card to its original column
+        
         restoreCard(cardId, originalColumnId);
 
-        // Remove the card from the archived list
+        
         var index = archivedCards.indexOf(cardId);
         if (index !== -1) {
             archivedCards.splice(index, 1);
             localStorage.setItem("archivedCards", JSON.stringify(archivedCards));
         }
 
-        // Remove the card from the UI
+        
         $("#archived-" + cardId).remove();
 
-        // Hide the archived cards section if no more archived cards
+        
         if ($("#archived-cards-container").children().length === 0) {
             $("#archivedCardsSection").hide();
            
         }
 
-        // Redirect back to the landing page with information about the unarchived card
+        
         redirectToLandingPage(cardId);
     });
 
-    // Function to restore a card
+   
     function restoreCard(cardId, originalColumnId) {
         const archivedCards = JSON.parse(localStorage.getItem('archivedCards')) || [];
         console.log('Archived Cards before restoration:', archivedCards);
 
-        // Find the index of the card with the given cardId
+        
         const index = archivedCards.findIndex(card => card.id === cardId);
 
-        // If the card is found, remove it from archivedCards
+        
         if (index !== -1) {
             const restoredCard = archivedCards.splice(index, 1)[0];
             localStorage.setItem('archivedCards', JSON.stringify(archivedCards));
 
-            // Add the restored card back to its original column
+           
             const originalColumnCards = JSON.parse(localStorage.getItem(originalColumnId)) || [];
             originalColumnCards.push(restoredCard);
             localStorage.setItem(originalColumnId, JSON.stringify(originalColumnCards));
